@@ -1,0 +1,69 @@
+name: Release
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Git - Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GH_USER_TOKEN }}
+
+      - name: Git - Setup
+        run: |
+          git config user.name "avchugaev"
+          git config user.email "achugaev93@gmail.com"
+
+      - name: Node - Setup
+        uses: actions/setup-node@v3
+        with:
+          node-version: 14
+
+      - name: NPM - Set cache directory
+        id: npm-cache-dir
+        run: |
+          echo "::set-output name=dir::$(npm config get cache)"
+
+      - name: NPM - Login
+        run: echo '//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}' > ~/.npmrc
+
+      - name: NPM - Restore cache
+        uses: actions/cache@v3
+        id: npm-cache
+        with:
+          path: ${{ steps.npm-cache-dir.outputs.dir }}
+          key: ${{ runner.os }}-npm-release-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-npm-release-
+
+      - name: NPM - Install dependencies
+        run: npm ci --prefer-offline=true --audit=false
+
+      - name: Nx - Affected - Lint
+        run: npm run nx -- affected --target=lint --base=last-release
+
+      - name: Nx - Affected - Test
+        run: npm run nx -- affected --target=test --base=last-release
+
+      - name: Nx - Affected - Build
+        run: npm run nx -- affected --target=build --base=last-release
+
+      - name: Nx - Affected - Release
+        run: npm run nx -- affected --target=release --base=last-release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_USER_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Git - Add "last-release" tag
+        run: git tag -f last-release
+
+      - name: Git - Push "last-release" tag
+        run: git push origin last-release --force
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_USER_TOKEN }}
