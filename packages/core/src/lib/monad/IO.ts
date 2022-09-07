@@ -12,22 +12,22 @@ export interface IO<T> {
   run(): T;
 }
 
-export function IO<T>(effect: Func<[], T>): IO<T> {
+export function IO<T>(fn: Func<[], T>): IO<T> {
   return {
     map(project) {
-      return IO(() => project(effect()));
+      return IO(() => project(fn()));
     },
-    flatMap(fn) {
-      return IO(() => fn(effect()).run());
+    flatMap(project) {
+      return IO(() => project(fn()).run());
     },
     apply(func) {
-      return func.map((fn) => fn(effect()));
+      return func.map((project) => project(fn()));
     },
     applyTo(value) {
       return value.apply(this as never) as never;
     },
     run(): T {
-      return effect();
+      return fn();
     },
   };
 }
