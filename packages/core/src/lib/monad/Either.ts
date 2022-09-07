@@ -57,7 +57,7 @@ class Left_<L, R> implements Either<L, R> {
   }
 
   swap(): Either<R, L> {
-    return new Right_(this.value) as never;
+    return new Right_(this.value);
   }
 
   forEach(): Either<L, R> {
