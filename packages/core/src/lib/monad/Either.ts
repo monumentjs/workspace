@@ -4,14 +4,20 @@ export interface Either<L, R> {
   readonly isLeft: boolean;
   readonly isRight: boolean;
 
+  left(): Iterable<L>;
+  right(): Iterable<R>;
+
   map<T>(project: Func<[value: R], T>): Either<L, T>;
   leftMap<T>(project: Func<[value: L], T>): Either<T, R>;
+
   flatMap<T>(project: Func<[value: R], Either<L, T>>): Either<L, T>;
   catchMap<T>(handle: Func<[value: L], Either<T, R>>): Either<T, R>;
+
   bimap<LL, RR>(
-    onLeft: Func<[value: L], LL>,
-    onRight: Func<[value: R], RR>
+    projectLeft: Func<[value: L], LL>,
+    projectRight: Func<[value: R], RR>
   ): Either<LL, RR>;
+
   swap(): Either<R, L>;
 
   forEach(callback: Func<[value: R], unknown>): Either<L, R>;
@@ -22,7 +28,7 @@ export interface Either<L, R> {
     value: Either<L, T>
   ): R extends Func<[T], unknown> ? Either<L, ReturnType<R>> : never;
 
-  fold<T>(onLeft: Func<[L], T>, onRight: Func<[R], T>): T;
+  fold<T>(projectLeft: Func<[L], T>, projectRight: Func<[R], T>): T;
 }
 
 class Left_<L, R> implements Either<L, R> {
@@ -35,6 +41,14 @@ class Left_<L, R> implements Either<L, R> {
   }
 
   constructor(private readonly value: L) {}
+
+  *left(): Iterable<L> {
+    yield this.value;
+  }
+
+  *right(): Iterable<R> {
+    // yield nothing
+  }
 
   map<T>(): Either<L, T> {
     return this as never;
@@ -52,8 +66,8 @@ class Left_<L, R> implements Either<L, R> {
     return handle(this.value);
   }
 
-  bimap<LL, RR>(onLeft: Func<[value: L], LL>): Either<LL, RR> {
-    return new Left_(onLeft(this.value));
+  bimap<LL, RR>(projectLeft: Func<[value: L], LL>): Either<LL, RR> {
+    return new Left_(projectLeft(this.value));
   }
 
   swap(): Either<R, L> {
@@ -80,8 +94,8 @@ class Left_<L, R> implements Either<L, R> {
     return this as never;
   }
 
-  fold<T>(onLeft: Func<[L], T>): T {
-    return onLeft(this.value);
+  fold<T>(projectLeft: Func<[L], T>): T {
+    return projectLeft(this.value);
   }
 }
 
@@ -95,6 +109,14 @@ class Right_<L, R> implements Either<L, R> {
   }
 
   constructor(private readonly value: R) {}
+
+  *left(): Iterable<L> {
+    // yield nothing
+  }
+
+  *right(): Iterable<R> {
+    yield this.value;
+  }
 
   map<T>(project: Func<[value: R], T>): Either<L, T> {
     return new Right_(project(this.value));
@@ -113,10 +135,10 @@ class Right_<L, R> implements Either<L, R> {
   }
 
   bimap<LL, RR>(
-    onLeft: Func<[value: L], LL>,
-    onRight: Func<[value: R], RR>
+    projectLeft: Func<[value: L], LL>,
+    projectRight: Func<[value: R], RR>
   ): Either<LL, RR> {
-    return new Right_(onRight(this.value));
+    return new Right_(projectRight(this.value));
   }
 
   swap(): Either<R, L> {
@@ -143,8 +165,8 @@ class Right_<L, R> implements Either<L, R> {
     return value.apply(this as never) as never;
   }
 
-  fold<T>(onLeft: Func<[L], T>, onRight: Func<[R], T>): T {
-    return onRight(this.value);
+  fold<T>(projectLeft: Func<[L], T>, projectRight: Func<[R], T>): T {
+    return projectRight(this.value);
   }
 }
 
