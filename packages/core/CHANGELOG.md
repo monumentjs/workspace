@@ -2,6 +2,15 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+# [0.19.0](https://github.com/monumentjs/workspace/compare/core@0.18.0...core@0.19.0) (2022-09-07)
+
+
+### Features
+
+* **core:** :sparkles: add `Either` monad ([2d5d049](https://github.com/monumentjs/workspace/commit/2d5d04973ceaece05a7322f9602b21770cf6bab1))
+
+
+
 # [0.18.0](https://github.com/monumentjs/workspace/compare/core@0.17.0...core@0.18.0) (2022-09-07)
 
 
