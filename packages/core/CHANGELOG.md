@@ -2,6 +2,15 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+# [0.21.0](https://github.com/monumentjs/workspace/compare/core@0.20.0...core@0.21.0) (2022-09-11)
+
+
+### Features
+
+* **core:** :sparkles: add functional abstractions ([a731903](https://github.com/monumentjs/workspace/commit/a731903da7644ee332c01b081c5f6a706d8ad618))
+
+
+
 # [0.20.0](https://github.com/monumentjs/workspace/compare/core@0.19.0...core@0.20.0) (2022-09-10)
 
 
