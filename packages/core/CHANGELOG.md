@@ -2,6 +2,15 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+# [0.22.0](https://github.com/monumentjs/workspace/compare/core@0.21.0...core@0.22.0) (2022-09-11)
+
+
+### Features
+
+* **core:** :sparkles: add type-safe errorless value accessors ([0984cab](https://github.com/monumentjs/workspace/commit/0984cab72805c9e56627caea68283488b7f34700))
+
+
+
 # [0.21.0](https://github.com/monumentjs/workspace/compare/core@0.20.0...core@0.21.0) (2022-09-11)
 
 
