@@ -1,7 +1,9 @@
 import { Func } from '../Func';
+import { Monad } from './Monad';
 
-export interface IO<T> {
+export interface IO<T> extends Monad<T> {
   map<R>(project: Func<[value: T], R>): IO<R>;
+
   flatMap<R>(project: Func<[value: T], IO<R>>): IO<R>;
 
   apply<R>(func: IO<Func<[T], R>>): IO<R>;

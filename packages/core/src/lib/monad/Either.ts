@@ -1,6 +1,7 @@
 import { Func } from '../Func';
+import { Monad } from './Monad';
 
-export interface Either<L, R> {
+export interface Either<L, R> extends Monad<R> {
   readonly isLeft: boolean;
   readonly isRight: boolean;
 

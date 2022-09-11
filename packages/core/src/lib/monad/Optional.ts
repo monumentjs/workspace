@@ -1,14 +1,17 @@
 import { Func } from '../Func';
+import { Monad } from './Monad';
 
-export interface Optional<T> {
+export interface Optional<T> extends Monad<T> {
   readonly isPresent: boolean;
   readonly isAbsent: boolean;
 
   readonly value: T | never;
 
   map<R>(project: Func<[value: T], R>): Optional<R>;
+
   flatMap<R>(project: Func<[value: T], Optional<R>>): Optional<R>;
   catchMap(fallback: Func<[], Optional<T>>): Optional<T>;
+
   forEach(callback: Func<[value: T], unknown>): Optional<T>;
 
   apply<R>(func: Optional<Func<[T], R>>): Optional<R>;

@@ -1,6 +1,7 @@
 import { Func } from '../Func';
+import { Monad } from './Monad';
 
-export interface Validated<E, V> {
+export interface Validated<E, V> extends Monad<V> {
   readonly value: V;
   readonly errors: readonly E[];
 
@@ -8,10 +9,12 @@ export interface Validated<E, V> {
   readonly isInvalid: boolean;
 
   map<T>(project: Func<[value: V], T>): Validated<E, T>;
+
   flatMap<T>(project: Func<[value: V], Validated<E, T>>): Validated<E, T>;
   catchMap<F>(
     handle: Func<[errors: readonly E[]], Validated<F, V>>
   ): Validated<F, V>;
+
   forEach(fn: Func<[value: V], unknown>): Validated<E, V>;
 
   apply<T>(fn: Validated<E, Func<[V], T>>): Validated<E, T>;
