@@ -1,12 +1,14 @@
 import { Func } from '../Func';
 import { Monad } from './Monad';
 
-export interface Validated<E, V> extends Monad<V> {
-  readonly value: V;
-  readonly errors: readonly E[];
-
+export interface Validated<E, V> extends Iterable<V>, Monad<V> {
   readonly isValid: boolean;
   readonly isInvalid: boolean;
+
+  value(): V | undefined;
+  value(fallback: Func<[errors: readonly E[]], V>): V;
+
+  errors(): readonly E[];
 
   map<T>(project: Func<[value: V], T>): Validated<E, T>;
 
@@ -29,10 +31,6 @@ export interface Validated<E, V> extends Monad<V> {
 }
 
 class Valid_<E, V> implements Validated<E, V> {
-  get errors(): readonly E[] {
-    return [];
-  }
-
   get isValid() {
     return true;
   }
@@ -41,14 +39,28 @@ class Valid_<E, V> implements Validated<E, V> {
     return false;
   }
 
-  constructor(readonly value: V) {}
+  constructor(private readonly _value: V) {}
+
+  *[Symbol.iterator]() {
+    yield this._value;
+  }
+
+  value(): V | undefined;
+  value(fallback: Func<[errors: readonly E[]], V>): V;
+  value(): V | undefined {
+    return this._value;
+  }
+
+  errors(): readonly E[] {
+    return [];
+  }
 
   map<T>(project: Func<[value: V], T>): Validated<E, T> {
-    return new Valid_(project(this.value));
+    return new Valid_(project(this._value));
   }
 
   flatMap<T>(project: Func<[value: V], Validated<E, T>>): Validated<E, T> {
-    return project(this.value);
+    return project(this._value);
   }
 
   catchMap<F>(): Validated<F, V> {
@@ -56,13 +68,13 @@ class Valid_<E, V> implements Validated<E, V> {
   }
 
   forEach(fn: Func<[value: V], unknown>): Validated<E, V> {
-    fn(this.value);
+    fn(this._value);
 
     return this;
   }
 
   apply<T>(func: Validated<E, Func<[value: V], T>>): Validated<E, T> {
-    return func.map((fn) => fn(this.value));
+    return func.map((fn) => fn(this._value));
   }
 
   applyTo<T>(
@@ -72,7 +84,7 @@ class Valid_<E, V> implements Validated<E, V> {
   }
 
   fold<T>(onValid: Func<[value: V], T>): T {
-    return onValid(this.value);
+    return onValid(this._value);
   }
 }
 
@@ -85,11 +97,21 @@ class Invalid_<E, V> implements Validated<E, V> {
     return true;
   }
 
-  get value(): V {
-    throw new Error('Invalid state: cannot get a value of Invalid');
+  constructor(private readonly _errors: readonly E[]) {}
+
+  *[Symbol.iterator]() {
+    // yield nothing
   }
 
-  constructor(readonly errors: readonly E[]) {}
+  value(): V | undefined;
+  value(fallback: Func<[errors: readonly E[]], V>): V;
+  value(fallback?: Func<[errors: readonly E[]], V>): V | undefined {
+    return fallback?.(this._errors);
+  }
+
+  errors(): readonly E[] {
+    return this._errors;
+  }
 
   map<T>(): Validated<E, T> {
     return this as never;
@@ -102,7 +124,7 @@ class Invalid_<E, V> implements Validated<E, V> {
   catchMap<F>(
     handle: Func<[errors: readonly E[]], Validated<F, V>>
   ): Validated<F, V> {
-    return handle(this.errors);
+    return handle(this._errors);
   }
 
   forEach(): Validated<E, V> {
@@ -111,7 +133,7 @@ class Invalid_<E, V> implements Validated<E, V> {
 
   apply<T>(other: Validated<E, Func<[value: V], T>>): Validated<E, T> {
     return other.isInvalid
-      ? new Invalid_([...this.errors, ...other.errors])
+      ? new Invalid_([...this._errors, ...other.errors()])
       : (this as never);
   }
 
@@ -125,7 +147,7 @@ class Invalid_<E, V> implements Validated<E, V> {
     onValid: Func<[value: V], T>,
     onInvalid: Func<[errors: readonly E[]], T>
   ): T {
-    return onInvalid(this.errors);
+    return onInvalid(this._errors);
   }
 }
 
@@ -156,7 +178,7 @@ export namespace Validated {
 
     for (const arg of args) {
       if (arg.isValid) {
-        values.push(arg.value);
+        values.push(...arg);
       }
 
       if (arg.isInvalid) {

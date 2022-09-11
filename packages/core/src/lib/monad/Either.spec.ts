@@ -13,8 +13,8 @@ describe('Either', () => {
         expect(result.isLeft).toBe(true);
         expect(result.isRight).toBe(false);
 
-        expect([...result.left()]).toEqual(['a']);
-        expect([...result.right()]).toEqual([]);
+        expect(result.left()).toBe('a');
+        expect(result.right()).toBeUndefined();
       });
     });
 
@@ -28,8 +28,8 @@ describe('Either', () => {
         expect(result.isLeft).toBe(false);
         expect(result.isRight).toBe(true);
 
-        expect([...result.left()]).toEqual([]);
-        expect([...result.right()]).toEqual([42]);
+        expect(result.left()).toBeUndefined();
+        expect(result.right()).toBe(42);
       });
     });
   });
@@ -38,30 +38,30 @@ describe('Either', () => {
     describe('when Left', () => {
       it('should create a new Left with mapped value', () => {
         const original = Left('a');
-        const result = original.leftMap(() => 42);
+        const result = original.mapLeft(() => 42);
 
         expect(result).not.toBe(original);
 
         expect(result.isLeft).toBe(true);
         expect(result.isRight).toBe(false);
 
-        expect([...result.left()]).toEqual([42]);
-        expect([...result.right()]).toEqual([]);
+        expect(result.left()).toBe(42);
+        expect(result.right()).toBeUndefined();
       });
     });
 
     describe('when Right', () => {
       it('should return the original', () => {
         const original = Right('a');
-        const result = original.leftMap(() => 42);
+        const result = original.mapLeft(() => 42);
 
         expect(result).toBe(original);
 
         expect(result.isLeft).toBe(false);
         expect(result.isRight).toBe(true);
 
-        expect([...result.left()]).toEqual([]);
-        expect([...result.right()]).toEqual(['a']);
+        expect(result.left()).toBeUndefined();
+        expect(result.right()).toBe('a');
       });
     });
   });
@@ -77,8 +77,8 @@ describe('Either', () => {
         expect(result.isLeft).toBe(true);
         expect(result.isRight).toBe(false);
 
-        expect([...result.left()]).toEqual(['a']);
-        expect([...result.right()]).toEqual([]);
+        expect(result.left()).toBe('a');
+        expect(result.right()).toBeUndefined();
       });
     });
 
@@ -92,8 +92,8 @@ describe('Either', () => {
         expect(result.isLeft).toBe(false);
         expect(result.isRight).toBe(true);
 
-        expect([...result.left()]).toEqual([]);
-        expect([...result.right()]).toEqual([42]);
+        expect(result.left()).toBeUndefined();
+        expect(result.right()).toBe(42);
       });
     });
   });
@@ -102,15 +102,15 @@ describe('Either', () => {
     describe('when Left', () => {
       it('should return the calculated value', () => {
         const original = Left('a');
-        const result = original.catchMap(() => Right(42));
+        const result = original.flatMapLeft(() => Right(42));
 
         expect(result).not.toBe(original);
 
         expect(result.isLeft).toBe(false);
         expect(result.isRight).toBe(true);
 
-        expect([...result.left()]).toEqual([]);
-        expect([...result.right()]).toEqual([42]);
+        expect(result.left()).toBeUndefined();
+        expect(result.right()).toBe(42);
       });
     });
   });
@@ -118,15 +118,15 @@ describe('Either', () => {
   describe('when Right', () => {
     it('should return the original', () => {
       const original = Right('a');
-      const result = original.catchMap(() => Right('b'));
+      const result = original.flatMapLeft(() => Right('b'));
 
       expect(result).toBe(original);
 
       expect(result.isLeft).toBe(false);
       expect(result.isRight).toBe(true);
 
-      expect([...result.left()]).toEqual([]);
-      expect([...result.right()]).toEqual(['a']);
+      expect(result.left()).toBeUndefined();
+      expect(result.right()).toBe('a');
     });
   });
 
@@ -139,7 +139,7 @@ describe('Either', () => {
           () => 'right'
         );
 
-        expect([...result.left()]).toEqual(['left']);
+        expect(result.left()).toBe('left');
       });
     });
 
@@ -151,7 +151,7 @@ describe('Either', () => {
           () => 'right'
         );
 
-        expect([...result.right()]).toEqual(['right']);
+        expect(result.right()).toBe('right');
       });
     });
   });
@@ -164,8 +164,8 @@ describe('Either', () => {
 
         expect(result.isLeft).toBe(false);
         expect(result.isRight).toBe(true);
-        expect([...result.left()]).toEqual([]);
-        expect([...result.right()]).toEqual([42]);
+        expect(result.left()).toBeUndefined();
+        expect(result.right()).toBe(42);
       });
     });
   });
@@ -177,8 +177,8 @@ describe('Either', () => {
 
       expect(result.isLeft).toBe(true);
       expect(result.isRight).toBe(false);
-      expect([...result.left()]).toEqual([42]);
-      expect([...result.right()]).toEqual([]);
+      expect(result.left()).toBe(42);
+      expect(result.right()).toBeUndefined();
     });
   });
 
@@ -258,7 +258,7 @@ describe('Either', () => {
         expect(result.isLeft).toBe(false);
         expect(result.isRight).toBe(true);
 
-        expect([...result.right()]).toEqual(['42']);
+        expect(result.right()).toBe('42');
       });
     });
   });
@@ -277,8 +277,8 @@ describe('Either', () => {
         expect(result.isLeft).toBe(true);
         expect(result.isRight).toBe(false);
 
-        expect([...result.left()]).toEqual([42]);
-        expect([...result.right()]).toEqual([]);
+        expect(result.left()).toBe(42);
+        expect(result.right()).toBeUndefined();
       });
     });
 
@@ -295,8 +295,8 @@ describe('Either', () => {
         expect(result.isLeft).toBe(false);
         expect(result.isRight).toBe(true);
 
-        expect([...result.left()]).toEqual([]);
-        expect([...result.right()]).toEqual(['42']);
+        expect(result.left()).toBeUndefined();
+        expect(result.right()).toBe('42');
       });
     });
   });

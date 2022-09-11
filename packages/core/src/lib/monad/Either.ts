@@ -1,23 +1,26 @@
 import { Func } from '../Func';
 import { Monad } from './Monad';
 
-export interface Either<L, R> extends Monad<R> {
+export interface Either<L, R> extends Iterable<R>, Monad<R> {
   readonly isLeft: boolean;
   readonly isRight: boolean;
 
-  left(): Iterable<L>;
-  right(): Iterable<R>;
+  left(): L | undefined;
+  left(fallback: Func<[], L>): L;
+
+  right(): R | undefined;
+  right(fallback: Func<[], R>): R;
 
   map<T>(project: Func<[value: R], T>): Either<L, T>;
-  leftMap<T>(project: Func<[value: L], T>): Either<T, R>;
+  mapLeft<T>(project: Func<[value: L], T>): Either<T, R>;
 
   flatMap<T>(project: Func<[value: R], Either<L, T>>): Either<L, T>;
-  catchMap<T>(handle: Func<[value: L], Either<T, R>>): Either<T, R>;
+  flatMapLeft<T>(project: Func<[value: L], Either<T, R>>): Either<T, R>;
 
-  bimap<LL, RR>(
-    projectLeft: Func<[value: L], LL>,
-    projectRight: Func<[value: R], RR>
-  ): Either<LL, RR>;
+  bimap<A, B>(
+    projectLeft: Func<[value: L], A>,
+    projectRight: Func<[value: R], B>
+  ): Either<A, B>;
 
   swap(): Either<R, L>;
 
@@ -43,19 +46,27 @@ class Left_<L, R> implements Either<L, R> {
 
   constructor(private readonly value: L) {}
 
-  *left(): Iterable<L> {
-    yield this.value;
+  *[Symbol.iterator]() {
+    // yield nothing
   }
 
-  *right(): Iterable<R> {
-    // yield nothing
+  left(): L | undefined;
+  left(fallback: Func<[], L>): L;
+  left(): L | undefined {
+    return this.value;
+  }
+
+  right(): R | undefined;
+  right(fallback: Func<[], R>): R;
+  right(fallback?: Func<[], R>): R | undefined {
+    return fallback?.();
   }
 
   map<T>(): Either<L, T> {
     return this as never;
   }
 
-  leftMap<T>(project: Func<[value: L], T>): Either<T, R> {
+  mapLeft<T>(project: Func<[value: L], T>): Either<T, R> {
     return new Left_(project(this.value));
   }
 
@@ -63,7 +74,7 @@ class Left_<L, R> implements Either<L, R> {
     return this as never;
   }
 
-  catchMap<T>(handle: Func<[value: L], Either<T, R>>): Either<T, R> {
+  flatMapLeft<T>(handle: Func<[value: L], Either<T, R>>): Either<T, R> {
     return handle(this.value);
   }
 
@@ -111,19 +122,27 @@ class Right_<L, R> implements Either<L, R> {
 
   constructor(private readonly value: R) {}
 
-  *left(): Iterable<L> {
-    // yield nothing
+  *[Symbol.iterator]() {
+    yield this.value;
   }
 
-  *right(): Iterable<R> {
-    yield this.value;
+  left(): L | undefined;
+  left(fallback: Func<[], L>): L;
+  left(fallback?: Func<[], L>): L | undefined {
+    return fallback?.();
+  }
+
+  right(): R | undefined;
+  right(fallback: Func<[], R>): R;
+  right(): R | undefined {
+    return this.value;
   }
 
   map<T>(project: Func<[value: R], T>): Either<L, T> {
     return new Right_(project(this.value));
   }
 
-  leftMap<T>(): Either<T, R> {
+  mapLeft<T>(): Either<T, R> {
     return this as never;
   }
 
@@ -131,7 +150,7 @@ class Right_<L, R> implements Either<L, R> {
     return project(this.value);
   }
 
-  catchMap<T>(): Either<T, R> {
+  flatMapLeft<T>(): Either<T, R> {
     return this as never;
   }
 

@@ -1,11 +1,12 @@
 import { Func } from '../Func';
 import { Monad } from './Monad';
 
-export interface Optional<T> extends Monad<T> {
+export interface Optional<T> extends Iterable<T>, Monad<T> {
   readonly isPresent: boolean;
   readonly isAbsent: boolean;
 
-  readonly value: T | never;
+  value(): T | undefined;
+  value(fallback: Func<[], T>): T;
 
   map<R>(project: Func<[value: T], R>): Optional<R>;
 
@@ -31,18 +32,28 @@ class Just_<T> implements Optional<T> {
     return false;
   }
 
-  constructor(readonly value: T) {
-    if (value == null) {
+  constructor(private readonly _value: T) {
+    if (_value == null) {
       throw new Error('Invalid argument: Just cannot have a nullable value');
     }
   }
 
+  *[Symbol.iterator]() {
+    yield this._value;
+  }
+
+  value(): T | undefined;
+  value(fallback: Func<[], T>): T;
+  value() {
+    return this._value;
+  }
+
   map<R>(project: Func<[value: T], R>): Optional<R> {
-    return new Just_(project(this.value));
+    return new Just_(project(this._value));
   }
 
   flatMap<R>(project: Func<[value: T], Optional<R>>): Optional<R> {
-    return project(this.value);
+    return project(this._value);
   }
 
   catchMap(): Optional<T> {
@@ -50,13 +61,13 @@ class Just_<T> implements Optional<T> {
   }
 
   forEach(callback: Func<[value: T], unknown>): Optional<T> {
-    callback(this.value);
+    callback(this._value);
 
     return this;
   }
 
   apply<R>(func: Optional<Func<[T], R>>): Optional<R> {
-    return func.map((fn) => fn(this.value));
+    return func.map((fn) => fn(this._value));
   }
 
   applyTo<R>(
@@ -66,7 +77,7 @@ class Just_<T> implements Optional<T> {
   }
 
   fold<R>(onPresent: Func<[value: T], R>): R {
-    return onPresent(this.value);
+    return onPresent(this._value);
   }
 }
 
@@ -79,8 +90,14 @@ class None_<T> implements Optional<T> {
     return true;
   }
 
-  get value(): T {
-    throw new Error('Invalid state: None does not have a value');
+  *[Symbol.iterator]() {
+    // yield nothing
+  }
+
+  value(): T | undefined;
+  value(fallback: Func<[], T>): T;
+  value(fallback?: Func<[], T>): T | undefined {
+    return fallback?.();
   }
 
   map<R>(): Optional<R> {

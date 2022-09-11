@@ -10,8 +10,8 @@ describe('Valid', () => {
       expect(result.isValid).toBe(true);
       expect(result.isInvalid).toBe(false);
 
-      expect(result.value).toBe(4);
-      expect(result.errors).toEqual([]);
+      expect(result.value()).toBe(4);
+      expect(result.errors()).toEqual([]);
     });
   });
 
@@ -24,8 +24,8 @@ describe('Valid', () => {
         expect(result.isValid).toBe(true);
         expect(result.isInvalid).toBe(false);
 
-        expect(result.value).toBe(4);
-        expect(result.errors).toEqual([]);
+        expect(result.value()).toBe(4);
+        expect(result.errors()).toEqual([]);
       });
     });
 
@@ -37,8 +37,8 @@ describe('Valid', () => {
         expect(result.isValid).toBe(false);
         expect(result.isInvalid).toBe(true);
 
-        expect(() => result.value).toThrow();
-        expect(result.errors).toEqual(['Oops']);
+        expect(result.value()).toBeUndefined();
+        expect(result.errors()).toEqual(['Oops']);
       });
     });
   });
@@ -51,8 +51,8 @@ describe('Valid', () => {
       expect(result.isValid).toBe(true);
       expect(result.isInvalid).toBe(false);
 
-      expect(result.value).toBe(2);
-      expect(result.errors).toEqual([]);
+      expect(result.value()).toBe(2);
+      expect(result.errors()).toEqual([]);
     });
   });
 
@@ -78,8 +78,8 @@ describe('Valid', () => {
         expect(result.isValid).toBe(true);
         expect(result.isInvalid).toBe(false);
 
-        expect(result.value).toBe(4);
-        expect(result.errors).toEqual([]);
+        expect(result.value()).toBe(4);
+        expect(result.errors()).toEqual([]);
       });
     });
 
@@ -92,8 +92,8 @@ describe('Valid', () => {
         expect(result.isValid).toBe(false);
         expect(result.isInvalid).toBe(true);
 
-        expect(() => result.value).toThrow();
-        expect(result.errors).toEqual(['Oops']);
+        expect(result.value()).toBeUndefined();
+        expect(result.errors()).toEqual(['Oops']);
       });
     });
   });
@@ -108,8 +108,8 @@ describe('Valid', () => {
         expect(result.isValid).toBe(true);
         expect(result.isInvalid).toBe(false);
 
-        expect(result.value).toBe(4);
-        expect(result.errors).toEqual([]);
+        expect(result.value()).toBe(4);
+        expect(result.errors()).toEqual([]);
       });
     });
 
@@ -122,8 +122,8 @@ describe('Valid', () => {
         expect(result.isValid).toBe(false);
         expect(result.isInvalid).toBe(true);
 
-        expect(() => result.value).toThrow();
-        expect(result.errors).toEqual(['Oops']);
+        expect(result.value()).toBeUndefined();
+        expect(result.errors()).toEqual(['Oops']);
       });
     });
   });
@@ -155,8 +155,8 @@ describe('Invalid', () => {
       expect(result.isValid).toBe(false);
       expect(result.isInvalid).toBe(true);
 
-      expect(() => result.value).toThrow();
-      expect(result.errors).toEqual(['Oops']);
+      expect(result.value()).toBeUndefined();
+      expect(result.errors()).toEqual(['Oops']);
     });
   });
 
@@ -169,8 +169,8 @@ describe('Invalid', () => {
         expect(result.isValid).toBe(false);
         expect(result.isInvalid).toBe(true);
 
-        expect(() => result.value).toThrow();
-        expect(result.errors).toEqual(['Oops']);
+        expect(result.value()).toBeUndefined();
+        expect(result.errors()).toEqual(['Oops']);
       });
     });
 
@@ -182,8 +182,8 @@ describe('Invalid', () => {
         expect(result.isValid).toBe(false);
         expect(result.isInvalid).toBe(true);
 
-        expect(() => result.value).toThrow();
-        expect(result.errors).toEqual(['Oops']);
+        expect(result.value()).toBeUndefined();
+        expect(result.errors()).toEqual(['Oops']);
       });
     });
   });
@@ -196,8 +196,8 @@ describe('Invalid', () => {
       expect(result.isValid).toBe(true);
       expect(result.isInvalid).toBe(false);
 
-      expect(result.value).toBe(-1);
-      expect(result.errors).toEqual([]);
+      expect(result.value()).toBe(-1);
+      expect(result.errors()).toEqual([]);
     });
   });
 
@@ -224,8 +224,8 @@ describe('Invalid', () => {
         expect(result.isValid).toBe(false);
         expect(result.isInvalid).toBe(true);
 
-        expect(() => result.value).toThrow();
-        expect(result.errors).toEqual(['Oops']);
+        expect(result.value()).toBeUndefined();
+        expect(result.errors()).toEqual(['Oops']);
       });
     });
 
@@ -238,8 +238,8 @@ describe('Invalid', () => {
         expect(result.isValid).toBe(false);
         expect(result.isInvalid).toBe(true);
 
-        expect(() => result.value).toThrow();
-        expect(result.errors).toEqual(['One', 'Two']);
+        expect(result.value()).toBeUndefined();
+        expect(result.errors()).toEqual(['One', 'Two']);
       });
     });
   });
@@ -254,8 +254,8 @@ describe('Invalid', () => {
         expect(result.isValid).toBe(false);
         expect(result.isInvalid).toBe(true);
 
-        expect(() => result.value).toThrow();
-        expect(result.errors).toEqual(['Oops']);
+        expect(result.value()).toBeUndefined();
+        expect(result.errors()).toEqual(['Oops']);
       });
     });
 
@@ -268,8 +268,8 @@ describe('Invalid', () => {
         expect(result.isValid).toBe(false);
         expect(result.isInvalid).toBe(true);
 
-        expect(() => result.value).toThrow();
-        expect(result.errors).toEqual(['Two', 'One']);
+        expect(result.value()).toBeUndefined();
+        expect(result.errors()).toEqual(['Two', 'One']);
       });
     });
   });
