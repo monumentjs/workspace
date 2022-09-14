@@ -1,5 +1,8 @@
 import { Func } from '../Func';
 import { Monad } from './Monad';
+import { NonFalsy } from '../NonFalsy';
+import { Either, Left, Right } from './Either';
+import { Invalid, Valid, Validated } from './Validated';
 
 export interface Optional<T> extends Iterable<T>, Monad<T> {
   readonly isJust: boolean;
@@ -139,9 +142,30 @@ export function None<T>(): Optional<T> {
   return new None_<T>();
 }
 
-// eslint-disable-next-line @typescript-eslint/no-namespace
-export namespace Optional {
-  export function fromNullable<T>(value: T): Optional<NonNullable<T>> {
-    return value == null ? None() : Just(value as never);
-  }
+export function nullableToOptional<T>(value: T): Optional<NonNullable<T>> {
+  return value == null ? None() : Just(value as NonNullable<T>);
+}
+
+export function falsyToOptional<T>(value: T): Optional<NonFalsy<T>> {
+  return value ? Just(value as NonFalsy<T>) : None();
+}
+
+export function optionalToEither<L, R>(
+  optional: Optional<R>,
+  fallback: Func<[], L>
+): Either<L, R> {
+  return optional.fold(
+    (v) => Right(v),
+    () => Left(fallback())
+  );
+}
+
+export function optionalToValidated<E, V>(
+  optional: Optional<V>,
+  fallback: Func<[], readonly E[]> = () => []
+): Validated<E, V> {
+  return optional.fold(
+    (v) => Valid(v),
+    () => Invalid(fallback())
+  );
 }
