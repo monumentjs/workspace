@@ -1,5 +1,5 @@
 import { Func } from '../Func';
-import { eitherFromPromise, eitherFromTry, Left, Right } from './Either';
+import { promiseToEither, tryToEither, Left, Right } from './Either';
 
 describe('Either', () => {
   describe('map', () => {
@@ -328,11 +328,11 @@ describe('Either', () => {
   });
 });
 
-describe('eitherFromTry', () => {
+describe('tryToEither', () => {
   describe('when returns a result', () => {
     it('should return a Right containing a result', () => {
       const fn = jest.fn(() => 42);
-      const result = eitherFromTry(fn);
+      const result = tryToEither(fn);
 
       expect(fn).toHaveBeenCalledTimes(1);
       expect(fn).toHaveBeenCalledWith();
@@ -349,7 +349,7 @@ describe('eitherFromTry', () => {
       const fn = jest.fn(() => {
         throw new Error('Oops');
       });
-      const result = eitherFromTry(fn);
+      const result = tryToEither(fn);
 
       expect(fn).toHaveBeenCalledTimes(1);
       expect(fn).toHaveBeenCalledWith();
@@ -362,11 +362,11 @@ describe('eitherFromTry', () => {
   });
 });
 
-describe('eitherFromPromise', () => {
+describe('promiseToEither', () => {
   describe('when returns a result', () => {
     it('should return a Promise with Right containing a result', async () => {
       const promise = Promise.resolve(42);
-      const result = await eitherFromPromise(promise);
+      const result = await promiseToEither(promise);
 
       expect(result.isLeft).toBe(false);
       expect(result.isRight).toBe(true);
@@ -378,7 +378,7 @@ describe('eitherFromPromise', () => {
   describe('when throws an error', () => {
     it('should return a Promise with Left containing an error', async () => {
       const promise = Promise.reject(new Error('Oops'));
-      const result = await eitherFromPromise(promise);
+      const result = await promiseToEither(promise);
 
       expect(result.isLeft).toBe(true);
       expect(result.isRight).toBe(false);

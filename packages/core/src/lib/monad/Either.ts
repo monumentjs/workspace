@@ -198,7 +198,7 @@ export function Right<L, R>(value: R): Either<L, R> {
   return new Right_(value);
 }
 
-export function eitherFromTry<T, E = unknown>(fn: Func<[], T>): Either<E, T> {
+export function tryToEither<T, E = unknown>(fn: Func<[], T>): Either<E, T> {
   try {
     return Right(fn());
   } catch (e) {
@@ -206,7 +206,7 @@ export function eitherFromTry<T, E = unknown>(fn: Func<[], T>): Either<E, T> {
   }
 }
 
-export function eitherFromPromise<T, E = unknown>(
+export function promiseToEither<T, E = unknown>(
   promise: Promise<T>
 ): Promise<Either<E, T>> {
   return promise.then(
