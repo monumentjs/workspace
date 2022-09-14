@@ -1,3 +1,4 @@
+export * from './lib/Falsy';
 export * from './lib/Func';
 export * from './lib/pipe';
 
