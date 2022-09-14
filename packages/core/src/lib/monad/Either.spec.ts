@@ -1,5 +1,5 @@
 import { Func } from '../Func';
-import { Left, Right } from './Either';
+import { eitherFromPromise, eitherFromTry, Left, Right } from './Either';
 
 describe('Either', () => {
   describe('map', () => {
@@ -324,6 +324,66 @@ describe('Either', () => {
 
         expect(result).toBe('right');
       });
+    });
+  });
+});
+
+describe('eitherFromTry', () => {
+  describe('when returns a result', () => {
+    it('should return a Right containing a result', () => {
+      const fn = jest.fn(() => 42);
+      const result = eitherFromTry(fn);
+
+      expect(fn).toHaveBeenCalledTimes(1);
+      expect(fn).toHaveBeenCalledWith();
+
+      expect(result.isLeft).toBe(false);
+      expect(result.isRight).toBe(true);
+      expect(result.left()).toBeUndefined();
+      expect(result.right()).toBe(42);
+    });
+  });
+
+  describe('when throws an error', () => {
+    it('should return a Left containing an error', () => {
+      const fn = jest.fn(() => {
+        throw new Error('Oops');
+      });
+      const result = eitherFromTry(fn);
+
+      expect(fn).toHaveBeenCalledTimes(1);
+      expect(fn).toHaveBeenCalledWith();
+
+      expect(result.isLeft).toBe(true);
+      expect(result.isRight).toBe(false);
+      expect(result.left()).toEqual(new Error('Oops'));
+      expect(result.right()).toBeUndefined();
+    });
+  });
+});
+
+describe('eitherFromPromise', () => {
+  describe('when returns a result', () => {
+    it('should return a Promise with Right containing a result', async () => {
+      const promise = Promise.resolve(42);
+      const result = await eitherFromPromise(promise);
+
+      expect(result.isLeft).toBe(false);
+      expect(result.isRight).toBe(true);
+      expect(result.left()).toBeUndefined();
+      expect(result.right()).toBe(42);
+    });
+  });
+
+  describe('when throws an error', () => {
+    it('should return a Promise with Left containing an error', async () => {
+      const promise = Promise.reject(new Error('Oops'));
+      const result = await eitherFromPromise(promise);
+
+      expect(result.isLeft).toBe(true);
+      expect(result.isRight).toBe(false);
+      expect(result.left()).toEqual(new Error('Oops'));
+      expect(result.right()).toBeUndefined();
     });
   });
 });
