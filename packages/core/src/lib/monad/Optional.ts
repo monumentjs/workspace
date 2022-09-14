@@ -2,8 +2,8 @@ import { Func } from '../Func';
 import { Monad } from './Monad';
 
 export interface Optional<T> extends Iterable<T>, Monad<T> {
-  readonly isPresent: boolean;
-  readonly isAbsent: boolean;
+  readonly isJust: boolean;
+  readonly isNone: boolean;
 
   value(): T | undefined;
   value(fallback: Func<[], T>): T;
@@ -24,11 +24,11 @@ export interface Optional<T> extends Iterable<T>, Monad<T> {
 }
 
 class Just_<T> implements Optional<T> {
-  get isPresent() {
+  get isJust() {
     return true;
   }
 
-  get isAbsent() {
+  get isNone() {
     return false;
   }
 
@@ -82,11 +82,11 @@ class Just_<T> implements Optional<T> {
 }
 
 class None_<T> implements Optional<T> {
-  get isPresent(): boolean {
+  get isJust(): boolean {
     return false;
   }
 
-  get isAbsent(): boolean {
+  get isNone(): boolean {
     return true;
   }
 
