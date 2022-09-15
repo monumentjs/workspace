@@ -3,6 +3,7 @@ export * from './lib/Func';
 export * from './lib/NonFalsy';
 export * from './lib/pipe';
 
+export * from './lib/monad/AIO';
 export * from './lib/monad/Applicative';
 export * from './lib/monad/Bind';
 export * from './lib/monad/Either';
