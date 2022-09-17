@@ -116,7 +116,9 @@ export function pipe<T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, R>(
   ]
 ): Func<[value: T0], R>;
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function pipe(...operators: any[]) {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   return (input: any) => {
     return operators.reduce((result, operator) => {
       return operator(result);
