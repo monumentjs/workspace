@@ -2,6 +2,15 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+# [0.25.0](https://github.com/monumentjs/workspace/compare/core@0.24.0...core@0.25.0) (2022-09-17)
+
+
+### Features
+
+* **core:** :sparkles: add `memoize` function ([c2f174c](https://github.com/monumentjs/workspace/commit/c2f174cd22dda7cafc26a0182d030beb9661bbb9)), closes [#13](https://github.com/monumentjs/workspace/issues/13)
+
+
+
 # [0.24.0](https://github.com/monumentjs/workspace/compare/core@0.23.0...core@0.24.0) (2022-09-17)
 
 
