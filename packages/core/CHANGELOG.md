@@ -2,6 +2,15 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+# [0.24.0](https://github.com/monumentjs/workspace/compare/core@0.23.0...core@0.24.0) (2022-09-17)
+
+
+### Features
+
+* **core:** :sparkles: add `compose` function ([ef2b111](https://github.com/monumentjs/workspace/commit/ef2b111fa4b3d43b47820df79dba7dcc9300500c)), closes [#12](https://github.com/monumentjs/workspace/issues/12)
+
+
+
 # [0.23.0](https://github.com/monumentjs/workspace/compare/core@0.22.0...core@0.23.0) (2022-09-15)
 
 
