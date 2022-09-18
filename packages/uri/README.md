@@ -1,11 +1,35 @@
-# uri
+# URI
 
-This library was generated with [Nx](https://nx.dev).
+URI parsing, serializing, modification, resolution and introspection functions.
 
-## Building
+### Table of contents
+ 
+- [Install](#install)
+- [Documentation](#documentation)
+- [License](#license)
 
-Run `nx build uri` to build the library.
+## Install
 
-## Running unit tests
+Using NPM:
 
-Run `nx test uri` to execute the unit tests via [Jest](https://jestjs.io).
+```bash
+npm i @monument/uri
+```
+
+Using Yarn:
+
+```bash
+yarn add @monument/uri
+```
+
+:arrow_up: [Table of contents](#table-of-contents)
+
+## Documentation
+
+`TODO:` Generate API Reference
+
+:arrow_up: [Table of contents](#table-of-contents)
+
+## License
+
+MIT
