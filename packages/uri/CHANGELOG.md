@@ -2,6 +2,13 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.16.3](https://github.com/monumentjs/workspace/compare/uri@0.16.2...uri@0.16.3) (2022-09-18)
+
+### Dependency Updates
+
+* `core` updated to version `0.1.0`
+
+
 ## [0.16.2](https://github.com/monumentjs/workspace/compare/uri@0.16.1...uri@0.16.2) (2022-09-18)
 
 ### Dependency Updates
