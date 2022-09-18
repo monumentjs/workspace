@@ -9,7 +9,7 @@
       "options": {
         "outputPath": "dist/packages/uri",
         "main": "packages/uri/src/index.ts",
-        "tsConfig": "packages/uri/tsconfig.lib.json",
+        "tsConfig": "packages/uri/tsconfig.json",
         "assets": ["packages/uri/*.md"]
       }
     },

@@ -17,5 +17,9 @@
     "type": "git",
     "url": "https://github.com/monumentjs/workspace.git",
     "directory": "packages/uri"
+  },
+  "typedoc": {
+    "entryPoint": "./src/index.ts",
+    "readmeFile": "./README.md"
   }
 }

@@ -5,7 +5,8 @@
   "scripts": {
     "nx": "nx",
     "migrations:create": "nx migrate latest",
-    "migrations:run": "nx migrate --run-migrations"
+    "migrations:run": "nx migrate --run-migrations",
+    "docs": "typedoc --entryPointStrategy packages packages/*"
   },
   "private": true,
   "dependencies": {
@@ -33,6 +34,7 @@
     "prettier": "^2.6.2",
     "ts-jest": "28.0.5",
     "ts-node": "10.9.1",
+    "typedoc": "^0.23.14",
     "typescript": "~4.7.2"
   }
 }
