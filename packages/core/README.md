@@ -1,11 +1,35 @@
-# core
+# Core
 
-This library was generated with [Nx](https://nx.dev).
+A set of pure functions and types useful in any application.
 
-## Building
+### Table of contents
+ 
+- [Install](#install)
+- [Documentation](#documentation)
+- [License](#license)
 
-Run `nx build core` to build the library.
+## Install
 
-## Running unit tests
+Using NPM:
 
-Run `nx test core` to execute the unit tests via [Jest](https://jestjs.io).
+```bash
+npm i @monument/core
+```
+
+Using Yarn:
+
+```bash
+yarn add @monument/core
+```
+
+:arrow_up: [Table of contents](#table-of-contents)
+
+## Documentation
+
+`TODO:` Generate API Reference
+
+:arrow_up: [Table of contents](#table-of-contents)
+
+## License
+
+MIT
