@@ -16,4 +16,4 @@ export * from './lib/monad/Functor';
 export * from './lib/monad/IO';
 export * from './lib/monad/Monad';
 export * from './lib/monad/Optional';
-export * from './lib/monad/Validated';
+export * from './lib/monad/Validation';

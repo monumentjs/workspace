@@ -2,7 +2,7 @@ import { Func } from '../Func';
 import { Monad } from './Monad';
 import { NonFalsy } from '../NonFalsy';
 import { Either, Left, Right } from './Either';
-import { Invalid, Valid, Validated } from './Validated';
+import { Invalid, Valid, Validation } from './Validation';
 
 export interface Optional<T> extends Iterable<T>, Monad<T> {
   readonly isJust: boolean;
@@ -160,10 +160,10 @@ export function optionalToEither<L, R>(
   );
 }
 
-export function optionalToValidated<E, V>(
+export function optionalToValidation<E, V>(
   optional: Optional<V>,
   fallback: Func<[], readonly E[]> = () => []
-): Validated<E, V> {
+): Validation<E, V> {
   return optional.fold(
     (v) => Valid(v),
     () => Invalid(fallback())

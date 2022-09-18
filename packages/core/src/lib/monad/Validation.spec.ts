@@ -1,5 +1,5 @@
 import { Func } from '../Func';
-import { Invalid, Valid } from './Validated';
+import { Invalid, joinValidations, Valid } from './Validation';
 
 describe('Valid', () => {
   describe('map', () => {
@@ -288,6 +288,40 @@ describe('Invalid', () => {
 
       expect(onInvalid).toHaveBeenCalledTimes(1);
       expect(onInvalid).toHaveBeenCalledWith(['Oops']);
+    });
+  });
+});
+
+describe('joinValidations', () => {
+  describe('when all are Valid', () => {
+    it('should result into Valid with all values', () => {
+      const a = Valid<URIError, number>(1);
+      const b = Valid<SyntaxError, number>(2);
+      const c = Valid<TypeError, number>(3);
+
+      const result = joinValidations(a, b, c);
+
+      expect(result.isValid).toBe(true);
+      expect(result.isInvalid).toBe(false);
+
+      expect(result.value()).toEqual([1, 2, 3]);
+      expect(result.errors()).toEqual([]);
+    });
+  });
+
+  describe('when some are Invalid', () => {
+    it('should result into Invalid with all errors', () => {
+      const a = Valid<URIError, number>(1);
+      const b = Invalid<SyntaxError, number>([new SyntaxError('Uff')]);
+      const c = Valid<TypeError, number>(3);
+
+      const result = joinValidations(a, b, c);
+
+      expect(result.isValid).toBe(false);
+      expect(result.isInvalid).toBe(true);
+
+      expect(result.value()).toBeUndefined();
+      expect(result.errors()).toEqual([new SyntaxError('Uff')]);
     });
   });
 });
