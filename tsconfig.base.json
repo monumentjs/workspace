@@ -21,7 +21,8 @@
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
     "paths": {
-      "@monument/core": ["packages/core/src/index.ts"]
+      "@monument/core": ["packages/core/src/index.ts"],
+      "@monument/uri": ["packages/uri/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
