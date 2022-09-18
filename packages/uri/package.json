@@ -1,8 +1,17 @@
 {
   "name": "@monument/uri",
   "description": "URI parsing, serializing, modification, resolution and introspection functions",
-  "keywords": ["URI", "URL", "parse", "serialize", "modify", "resolve", "introspect", "functions"],
-  "version": "0.16.0",
+  "keywords": [
+    "URI",
+    "URL",
+    "parse",
+    "serialize",
+    "modify",
+    "resolve",
+    "introspect",
+    "functions"
+  ],
+  "version": "0.16.1",
   "type": "commonjs",
   "repository": {
     "type": "git",
