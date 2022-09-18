@@ -1,5 +1,12 @@
 {
   "name": "@monument/core",
+  "description": "Basic functions and types",
+  "keywords": ["functions", "compose", "pipe", "memoize"],
   "version": "0.25.1",
-  "type": "commonjs"
+  "type": "commonjs",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/monumentjs/workspace.git",
+    "directory": "packages/core"
+  }
 }
