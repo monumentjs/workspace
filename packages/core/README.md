@@ -1,12 +1,11 @@
-# Core
+## `@monument/core`
 
 A set of pure functions and types useful in any application.
 
-### Table of contents
- 
-- [Install](#install)
-- [Documentation](#documentation)
-- [License](#license)
+![Build](https://img.shields.io/github/workflow/status/monumentjs/workspace/Release?logo=github)
+![License](https://img.shields.io/github/license/monumentjs/workspace?logo=github)
+![NPM version](https://img.shields.io/npm/v/@monument/core?logo=npm)
+![NPM dependencies](https://img.shields.io/librariesio/release/npm/@monument/core?logo=npm)
 
 ## Install
 
@@ -22,13 +21,9 @@ Using Yarn:
 yarn add @monument/core
 ```
 
-:arrow_up: [Table of contents](#table-of-contents)
-
 ## Documentation
 
-`TODO:` Generate API Reference
-
-:arrow_up: [Table of contents](#table-of-contents)
+- [API Reference](https://monumentjs.github.io/workspace/modules/_monument_core.html)
 
 ## License
 
