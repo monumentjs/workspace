@@ -18,6 +18,7 @@
     "url": "https://github.com/monumentjs/workspace.git",
     "directory": "packages/uri"
   },
+  "license": "MIT",
   "typedoc": {
     "entryPoint": "./src/index.ts",
     "readmeFile": "./README.md"

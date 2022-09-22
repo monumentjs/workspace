@@ -1,11 +1,12 @@
 ## `@monument/uri`
 
-A set of pure functions and types useful in any application.
+URI parsing, serializing, modification, resolution and introspection functions.
 
-![Build](https://img.shields.io/github/workflow/status/monumentjs/workspace/Release?logo=github)
-![License](https://img.shields.io/github/license/monumentjs/workspace?logo=github)
-![NPM version](https://img.shields.io/npm/v/@monument/uri?logo=npm)
-![NPM dependencies](https://img.shields.io/librariesio/release/npm/@monument/uri?logo=npm)
+[![Build](https://img.shields.io/github/workflow/status/monumentjs/workspace/Release?logo=typescript&logoColor=white)](https://github.com/monumentjs/workspace/actions)
+[![Test](https://img.shields.io/github/workflow/status/monumentjs/workspace/Release?logo=jest&label=test)](https://github.com/monumentjs/workspace/actions)
+[![Lint](https://img.shields.io/github/workflow/status/monumentjs/workspace/Release?logo=eslint&label=lint)](https://github.com/monumentjs/workspace/actions)
+[![License](https://img.shields.io/github/license/monumentjs/workspace?logo=github)](/LICENSE)
+[![NPM version](https://img.shields.io/npm/v/@monument/uri?logo=npm&label=version&logoColor=white)](https://www.npmjs.com/package/@monument/uri)
 
 ## Install
 
