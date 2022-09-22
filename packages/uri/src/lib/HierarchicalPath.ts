@@ -19,7 +19,7 @@ export interface HierarchicalPath {
 
 export function createHierarchicalPath(
   isAbsolute: boolean,
-  segments: readonly PathSegment[],
+  segments: readonly PathSegment[]
 ): HierarchicalPath {
   return validate(normalize(create(isAbsolute, segments)));
 }
@@ -27,7 +27,7 @@ export function createHierarchicalPath(
 export function parseHierarchicalPath(path: string): HierarchicalPath {
   return createHierarchicalPath(
     path.length === 0 || path.startsWith(DELIMITER),
-    path.split(DELIMITER).filter(Boolean).map(parsePathSegment),
+    path.split(DELIMITER).filter(Boolean).map(parsePathSegment)
   );
 }
 
@@ -36,6 +36,20 @@ export function serializeHierarchicalPath(path: HierarchicalPath): string {
   const prefix = isAbsolute && segments.length ? DELIMITER : '';
 
   return prefix + segments.map(serializePathSegment).join(DELIMITER);
+}
+
+export function resolveHierarchicalPath(
+  base: HierarchicalPath,
+  ref: HierarchicalPath
+): HierarchicalPath {
+  if (ref.isAbsolute) {
+    return ref;
+  }
+
+  return createHierarchicalPath(base.isAbsolute, [
+    ...base.segments,
+    ...ref.segments,
+  ]);
 }
 
 export function setAbsolute(isAbsolute: boolean) {
@@ -50,7 +64,7 @@ export function setSegments(segments: readonly PathSegment[]) {
 
 function create(
   isAbsolute: boolean,
-  segments: readonly PathSegment[],
+  segments: readonly PathSegment[]
 ): HierarchicalPath {
   return {
     isOpaque: false,

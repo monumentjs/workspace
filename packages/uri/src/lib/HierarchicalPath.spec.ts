@@ -1,6 +1,7 @@
 import { pipe } from '@monument/core';
 import {
   HierarchicalPath,
+  resolveHierarchicalPath,
   parseHierarchicalPath,
   setAbsolute,
   setSegments,
@@ -136,6 +137,100 @@ describe.each<{
   });
 });
 
+describe.each<{
+  base: string;
+  ref: string;
+  result: HierarchicalPath;
+}>([
+  {
+    base: '/a/../../c/..',
+    ref: '/c/d',
+    result: {
+      isOpaque: false,
+      isHierarchical: true,
+      isAbsolute: true,
+      segments: [{ name: 'c' }, { name: 'd' }],
+    },
+  },
+  {
+    base: '/a/../../c/..',
+    ref: './c/d',
+    result: {
+      isOpaque: false,
+      isHierarchical: true,
+      isAbsolute: true,
+      segments: [{ name: 'c' }, { name: 'd' }],
+    },
+  },
+  {
+    base: './a/b',
+    ref: './c/d',
+    result: {
+      isOpaque: false,
+      isHierarchical: true,
+      isAbsolute: false,
+      segments: [
+        { name: '.' },
+        { name: 'a' },
+        { name: 'b' },
+        { name: 'c' },
+        { name: 'd' },
+      ],
+    },
+  },
+  {
+    base: '..',
+    ref: './c/d',
+    result: {
+      isOpaque: false,
+      isHierarchical: true,
+      isAbsolute: false,
+      segments: [{ name: '..' }, { name: 'c' }, { name: 'd' }],
+    },
+  },
+  {
+    base: '.',
+    ref: './c/d',
+    result: {
+      isOpaque: false,
+      isHierarchical: true,
+      isAbsolute: false,
+      segments: [{ name: '.' }, { name: 'c' }, { name: 'd' }],
+    },
+  },
+  {
+    base: '.',
+    ref: '../c/d',
+    result: {
+      isOpaque: false,
+      isHierarchical: true,
+      isAbsolute: false,
+      segments: [{ name: '..' }, { name: 'c' }, { name: 'd' }],
+    },
+  },
+  {
+    base: '/',
+    ref: '../c/d',
+    result: {
+      isOpaque: false,
+      isHierarchical: true,
+      isAbsolute: true,
+      segments: [{ name: 'c' }, { name: 'd' }],
+    },
+  },
+])('mergeHierarchicalPath', ({ base, ref, result }) => {
+  describe(`given base "${base}" and ref "${ref}"`, () => {
+    it('should parse', () => {
+      expect(
+        resolveHierarchicalPath(
+          parseHierarchicalPath(base),
+          parseHierarchicalPath(ref)
+        )
+      ).toEqual(result);
+    });
+  });
+});
+
 describe.each([
   {
     path: '/a/b/c',
@@ -165,8 +260,8 @@ describe.each([
           pipe(
             parseHierarchicalPath,
             setAbsolute(isAbsolute),
-            serializePath,
-          )(path),
+            serializePath
+          )(path)
         ).toBe(result);
       });
     });
@@ -192,8 +287,8 @@ describe.each([
           pipe(
             parseHierarchicalPath,
             setSegments(segments),
-            serializePath,
-          )(path),
+            serializePath
+          )(path)
         ).toBe(result);
       });
     });

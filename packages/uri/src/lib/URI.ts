@@ -1,7 +1,11 @@
 import { pipe } from '@monument/core';
 import { Authority, parseAuthority, serializeAuthority } from './Authority';
 import { Fragment, parseFragment, serializeFragment } from './Fragment';
-import { setAbsolute } from './HierarchicalPath';
+import {
+  HierarchicalPath,
+  resolveHierarchicalPath,
+  setAbsolute,
+} from './HierarchicalPath';
 import { parsePath, Path, serializePath } from './Path';
 import { parseQuery, Query, serializeQuery } from './Query';
 import { parseScheme, Scheme, serializeScheme } from './Scheme';
@@ -88,6 +92,58 @@ function serialize(uri: URI): string {
   return result;
 }
 
+/**
+ * Resolves a reference URI from base URI.
+ * @param base Base URI
+ * @param ref Reference URI
+ * @returns a resolved URI
+ * @alpha
+ */
+export function resolveURI(base: URI, ref: URI): URI {
+  if (base.path.isOpaque) {
+    throw new URIError('Invalid base URI: opaque path is not allowed');
+  }
+
+  if (ref.path.isOpaque) {
+    throw new URIError('Invalid ref URI: opaque path is not allowed');
+  }
+
+  let scheme: Scheme | undefined;
+  let authority: Authority | undefined;
+  let path: HierarchicalPath;
+  let query: Query | undefined;
+  const fragment = ref.fragment;
+
+  if (ref.scheme) {
+    scheme = ref.scheme;
+    authority = ref.authority;
+    path = ref.path;
+    query = ref.query;
+  } else {
+    if (ref.authority) {
+      authority = ref.authority;
+      path = ref.path;
+      query = ref.query;
+    } else {
+      if (ref.path.segments.length === 0) {
+        path = base.path;
+        if (ref.query?.length) {
+          query = ref.query;
+        } else {
+          query = base.query;
+        }
+      } else {
+        path = resolveHierarchicalPath(base.path, ref.path);
+        query = ref.query;
+      }
+      authority = base.authority;
+    }
+    scheme = base.scheme;
+  }
+
+  return { scheme, authority, path, query, fragment };
+}
+
 function normalize(uri: URI): URI {
   return {
     ...uri,
@@ -102,7 +158,7 @@ function validate(uri: URI): URI {
     if (!uri.authority) {
       if (uri.path.isHierarchical) {
         throw new URIError(
-          'Hierarchical path is not allowed when authority is not defined',
+          'Hierarchical path is not allowed when authority is not defined'
         );
       }
     }

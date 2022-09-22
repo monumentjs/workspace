@@ -4,6 +4,7 @@ import { parsePath } from './Path';
 import { parseQuery } from './Query';
 import {
   parseURI,
+  resolveURI,
   serializeURI,
   setAuthority,
   setFragment,
@@ -887,6 +888,77 @@ describe('serializeURI', () => {
 
 describe.each([
   {
+    base: '/a/b/c',
+    ref: '/d/e/f',
+    result: '/d/e/f',
+  },
+  {
+    base: './a/b/c',
+    ref: '/d/e/f',
+    result: '/d/e/f',
+  },
+  {
+    base: '/a/b/c',
+    ref: './d/e/f',
+    result: '/a/b/c/d/e/f',
+  },
+  {
+    base: '/a/b/c',
+    ref: '../d/e/f',
+    result: '/a/b/d/e/f',
+  },
+  {
+    base: '/a/b/c',
+    ref: '../d/e/f?a=b&c=d#bottom',
+    result: '/a/b/d/e/f?a=b&c=d#bottom',
+  },
+  {
+    base: 'http://localhost:3200/a/b/c',
+    ref: '../d/e/f?a=b&c=d#bottom',
+    result: 'http://localhost:3200/a/b/d/e/f?a=b&c=d#bottom',
+  },
+  {
+    base: 'http://localhost:3200',
+    ref: '/a/b/c',
+    result: 'http://localhost:3200/a/b/c',
+  },
+  {
+    base: '//localhost:3200',
+    ref: '/a/b/c',
+    result: '//localhost:3200/a/b/c',
+  },
+  {
+    base: '/a/b/c',
+    ref: '//localhost:3200',
+    result: '//localhost:3200',
+  },
+  {
+    base: '/a/b/c?a=b',
+    ref: '//localhost:3200',
+    result: '//localhost:3200',
+  },
+  {
+    base: '/a/b/c?a=b#bottom',
+    ref: '//localhost:3200',
+    result: '//localhost:3200',
+  },
+  {
+    base: 'http://localhost/a/b/c?a=b#bottom',
+    ref: '//localhost:3200',
+    result: 'http://localhost:3200',
+  },
+])('resolveURI', ({ base, ref, result }) => {
+  describe(`given base "${base}" and ref "${ref}"`, () => {
+    it(`should resolve to "${result}"`, () => {
+      expect(serializeURI(resolveURI(parseURI(base), parseURI(ref)))).toBe(
+        result
+      );
+    });
+  });
+});
+
+describe.each([
+  {
     uri: '//localhost:3000',
     scheme: 'https',
     result: 'https://localhost:3000',
@@ -906,7 +978,7 @@ describe.each([
     describe(`set scheme to "${scheme}"`, () => {
       it(`should result to "${result}"`, () => {
         expect(pipe(parseURI, setScheme(scheme), serializeURI)(uri)).toBe(
-          result,
+          result
         );
       });
     });
@@ -927,8 +999,8 @@ describe.each([
           pipe(
             parseURI,
             setAuthority(parseAuthority(authority)),
-            serializeURI,
-          )(uri),
+            serializeURI
+          )(uri)
         ).toBe(result);
       });
     });
@@ -959,7 +1031,7 @@ describe.each([
     describe(`set path to "${path}"`, () => {
       it(`should result to "${result}"`, () => {
         expect(
-          pipe(parseURI, setPath(parsePath(opaque)(path)), serializeURI)(uri),
+          pipe(parseURI, setPath(parsePath(opaque)(path)), serializeURI)(uri)
         ).toBe(result);
       });
     });
@@ -977,7 +1049,7 @@ describe.each([
     describe(`set query to "${query}"`, () => {
       it(`should result to "${result}"`, () => {
         expect(
-          pipe(parseURI, setQuery(parseQuery(query)), serializeURI)(uri),
+          pipe(parseURI, setQuery(parseQuery(query)), serializeURI)(uri)
         ).toBe(result);
       });
     });
@@ -995,7 +1067,7 @@ describe.each([
     describe(`set fragment to "${fragment}"`, () => {
       it(`should result to "${result}"`, () => {
         expect(pipe(parseURI, setFragment(fragment), serializeURI)(uri)).toBe(
-          result,
+          result
         );
       });
     });
