@@ -2,10 +2,11 @@
 
 A set of pure functions and types useful in any application.
 
-![Build](https://img.shields.io/github/workflow/status/monumentjs/workspace/Release?logo=github)
-![License](https://img.shields.io/github/license/monumentjs/workspace?logo=github)
-![NPM version](https://img.shields.io/npm/v/@monument/core?logo=npm)
-![NPM dependencies](https://img.shields.io/librariesio/release/npm/@monument/core?logo=npm)
+[![Build](https://img.shields.io/github/workflow/status/monumentjs/workspace/Release?logo=typescript&logoColor=white)](https://github.com/monumentjs/workspace/actions)
+[![Test](https://img.shields.io/github/workflow/status/monumentjs/workspace/Release?logo=jest&label=test)](https://github.com/monumentjs/workspace/actions)
+[![Lint](https://img.shields.io/github/workflow/status/monumentjs/workspace/Release?logo=eslint&label=lint)](https://github.com/monumentjs/workspace/actions)
+[![License](https://img.shields.io/github/license/monumentjs/workspace?logo=github)](/LICENSE)
+[![NPM version](https://img.shields.io/npm/v/@monument/core?logo=npm&label=version&logoColor=white)](https://www.npmjs.com/package/@monument/core)
 
 ## Install
 
