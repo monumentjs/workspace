@@ -2,6 +2,15 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.26.1](https://github.com/monumentjs/workspace/compare/core@0.26.0...core@0.26.1) (2022-09-23)
+
+
+### Bug Fixes
+
+* **core:** :package: switch to ES modules ([c4e9630](https://github.com/monumentjs/workspace/commit/c4e96308a1d2baaff6bed1b6045eb70d69b02eef))
+
+
+
 # [0.26.0](https://github.com/monumentjs/workspace/compare/core@0.25.6...core@0.26.0) (2022-09-23)
 
 
