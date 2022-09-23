@@ -13,9 +13,3 @@
 | ------- | ------------- | ------ |
 | [`@monument/core`](https://www.npmjs.com/package/@monument/core) | [`API Reference`](https://monumentjs.github.io/workspace/modules/_monument_core.html) | [![NPM weekly downloads](https://img.shields.io/npm/dw/@monument/core?logo=npm)](https://www.npmjs.com/package/@monument/core) [![NPM version](https://img.shields.io/npm/v/@monument/core?logo=npm&label=version&logoColor=white)](https://www.npmjs.com/package/@monument/core) |
 | [`@monument/uri`](https://www.npmjs.com/package/@monument/uri) | [`API Reference`](https://monumentjs.github.io/workspace/modules/_monument_uri.html) | [![NPM weekly downloads](https://img.shields.io/npm/dw/@monument/uri?logo=npm)](https://www.npmjs.com/package/@monument/uri) [![NPM version](https://img.shields.io/npm/v/@monument/uri?logo=npm&label=version&logoColor=white)](https://www.npmjs.com/package/@monument/uri) |
-
-<style>
-  table {
-    width: 100%;
-  }
-</style>
