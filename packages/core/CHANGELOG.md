@@ -2,6 +2,15 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+# [0.26.0](https://github.com/monumentjs/workspace/compare/core@0.25.6...core@0.26.0) (2022-09-23)
+
+
+### Features
+
+* **core:** :fire: remove monads ([a2fc517](https://github.com/monumentjs/workspace/commit/a2fc517691d0b942ec4426d35bec1e6c46219e91))
+
+
+
 ## [0.25.6](https://github.com/monumentjs/workspace/compare/core@0.25.5...core@0.25.6) (2022-09-23)
 
 
