@@ -1,0 +1,27 @@
+{
+  "name": "@monument/monad",
+  "description": "Essential monadic types",
+  "keywords": [
+    "monad",
+    "functor",
+    "applicative",
+    "either",
+    "optional",
+    "maybe",
+    "io",
+    "aio",
+    "validation"
+  ],
+  "version": "0.0.1",
+  "type": "commonjs",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/monumentjs/workspace.git",
+    "directory": "packages/monad"
+  },
+  "license": "MIT",
+  "typedoc": {
+    "entryPoint": "./src/index.ts",
+    "readmeFile": "./README.md"
+  }
+}
