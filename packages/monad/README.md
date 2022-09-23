@@ -1,6 +1,6 @@
 ## `@monument/monad`
 
-This packages provides useful monads like `Either`, `Optional`, `IO`, `AIO` and `Validation`.
+This packages provides essential monads like `Either`, `Optional`, `IO`, `AIO` and `Validation`.
 
 [![Build](https://img.shields.io/github/workflow/status/monumentjs/workspace/Release?logo=typescript&logoColor=white)](https://github.com/monumentjs/workspace/actions)
 [![Test](https://img.shields.io/github/workflow/status/monumentjs/workspace/Release?logo=jest&label=test)](https://github.com/monumentjs/workspace/actions)

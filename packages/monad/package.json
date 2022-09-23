@@ -1,6 +1,6 @@
 {
   "name": "@monument/monad",
-  "description": "Essential monadic types",
+  "description": "Essential TypeScript monads",
   "keywords": [
     "monad",
     "functor",
