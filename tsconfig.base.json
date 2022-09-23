@@ -22,6 +22,7 @@
     "noFallthroughCasesInSwitch": true,
     "paths": {
       "@monument/core": ["packages/core/src/index.ts"],
+      "@monument/monad": ["packages/monad/src/index.ts"],
       "@monument/uri": ["packages/uri/src/index.ts"]
     }
   },
