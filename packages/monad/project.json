@@ -27,6 +27,31 @@
         "jestConfig": "packages/monad/jest.config.ts",
         "passWithNoTests": true
       }
+    },
+    "release": {
+      "executor": "@jscutlery/semver:version",
+      "options": {
+        "baseBranch": "main",
+        "preset": "angular",
+        "tagPrefix": "${projectName}@",
+        "postTargets": ["monad:npm", "monad:github"],
+        "trackDeps": true,
+        "push": true,
+        "commitMessageFormat": "chore(${projectName}): release version ${version}\n[skip ci]"
+      }
+    },
+    "github": {
+      "executor": "@jscutlery/semver:github",
+      "options": {
+        "tag": "${tag}",
+        "notes": "${notes}"
+      }
+    },
+    "npm": {
+      "executor": "ngx-deploy-npm:deploy",
+      "options": {
+        "buildTarget": "production"
+      }
     }
   },
   "tags": []
