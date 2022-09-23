@@ -2,6 +2,18 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.17.4](https://github.com/monumentjs/workspace/compare/uri@0.17.3...uri@0.17.4) (2022-09-23)
+
+### Dependency Updates
+
+* `core` updated to version `0.1.0`
+
+### Bug Fixes
+
+* **uri:** :package: switch to ES modules ([e971abd](https://github.com/monumentjs/workspace/commit/e971abd407e5dfc8132e903b5dec8eca172b1ac0))
+
+
+
 ## [0.17.3](https://github.com/monumentjs/workspace/compare/uri@0.17.2...uri@0.17.3) (2022-09-23)
 
 ### Dependency Updates
