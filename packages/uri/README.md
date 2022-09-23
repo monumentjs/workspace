@@ -6,25 +6,12 @@ URI parsing, serializing, modification, resolution and introspection functions.
 [![Test](https://img.shields.io/github/workflow/status/monumentjs/workspace/Release?logo=jest&label=test)](https://github.com/monumentjs/workspace/actions)
 [![Lint](https://img.shields.io/github/workflow/status/monumentjs/workspace/Release?logo=eslint&label=lint)](https://github.com/monumentjs/workspace/actions)
 [![License](https://img.shields.io/github/license/monumentjs/workspace?logo=github)](/LICENSE)
+[![NPM weekly downloads](https://img.shields.io/npm/dw/@monument/uri?logo=npm)](https://www.npmjs.com/package/@monument/uri)
 [![NPM version](https://img.shields.io/npm/v/@monument/uri?logo=npm&label=version&logoColor=white)](https://www.npmjs.com/package/@monument/uri)
-
-## Install
-
-Using NPM:
-
-```bash
-npm i @monument/uri
-```
-
-Using Yarn:
-
-```bash
-yarn add @monument/uri
-```
 
 ## Documentation
 
-- [API Reference](https://monumentjs.github.io/workspace/modules/_monument_uri.html)
+[`API Reference`](https://monumentjs.github.io/workspace/modules/_monument_uri.html)
 
 ## License
 
