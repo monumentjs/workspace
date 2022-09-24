@@ -2,6 +2,18 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.17.5](https://github.com/monumentjs/workspace/compare/uri@0.17.4...uri@0.17.5) (2022-09-24)
+
+### Dependency Updates
+
+* `core` updated to version `0.1.0`
+
+### Bug Fixes
+
+* **uri:** :wrench: fix tsconfig path ([7b35a39](https://github.com/monumentjs/workspace/commit/7b35a39f92ae062535f629265a5a21ddd921ab73))
+
+
+
 ## [0.17.4](https://github.com/monumentjs/workspace/compare/uri@0.17.3...uri@0.17.4) (2022-09-23)
 
 ### Dependency Updates
