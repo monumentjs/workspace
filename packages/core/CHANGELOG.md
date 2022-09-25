@@ -2,6 +2,15 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+# [0.27.0](https://github.com/monumentjs/workspace/compare/core@0.26.2...core@0.27.0) (2022-09-25)
+
+
+### Features
+
+* **core:** :sparkles: add `chain` function ([2ec2cfc](https://github.com/monumentjs/workspace/commit/2ec2cfcbb603f31ae172257ec06aa605d16dde5e)), closes [#22](https://github.com/monumentjs/workspace/issues/22)
+
+
+
 ## [0.26.2](https://github.com/monumentjs/workspace/compare/core@0.26.1...core@0.26.2) (2022-09-24)
 
 
