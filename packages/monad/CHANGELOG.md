@@ -9,6 +9,13 @@ This file was generated using [@jscutlery/semver](https://github.com/jscutlery/s
 * `core` updated to version `0.1.0`
 
 
+## [0.1.4](https://github.com/monumentjs/workspace/compare/monad@0.1.3...monad@0.1.4) (2022-09-25)
+
+### Dependency Updates
+
+* `core` updated to version `0.1.0`
+
+
 ## [0.1.3](https://github.com/monumentjs/workspace/compare/monad@0.1.2...monad@0.1.3) (2022-09-24)
 
 ### Dependency Updates
