@@ -1,6 +1,7 @@
 export * from './lib/Falsy';
 export * from './lib/Func';
 export * from './lib/NonFalsy';
+export * from './lib/chain';
 export * from './lib/compose';
 export * from './lib/pipe';
 
