@@ -2,6 +2,16 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+# [0.28.0](https://github.com/monumentjs/workspace/compare/core@0.27.0...core@0.28.0) (2022-09-25)
+
+
+### Features
+
+* **core:** :sparkles: add `identity` function ([890cf83](https://github.com/monumentjs/workspace/commit/890cf83af8d44fab19920569db9a824fc6e844d2))
+* **core:** :sparkles: add `noop` function ([83b8c84](https://github.com/monumentjs/workspace/commit/83b8c84656f46e6271f711b88d98dba5c4f1295f))
+
+
+
 # [0.27.0](https://github.com/monumentjs/workspace/compare/core@0.26.2...core@0.27.0) (2022-09-25)
 
 
