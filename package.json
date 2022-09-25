@@ -6,14 +6,18 @@
     "nx": "nx",
     "migrations:create": "nx migrate latest",
     "migrations:run": "nx migrate --run-migrations",
-    "docs": "typedoc --entryPointStrategy packages packages/*"
+    "docs": "typedoc --entryPointStrategy packages packages/*",
+    "ci:build": "nx affected --target=build --base=last-release",
+    "ci:test": "nx affected --target=test --base=last-release",
+    "ci:lint": "nx affected --target=lint --base=last-release",
+    "ci:release": "nx affected --target=release --base=last-release --parallel=1"
   },
   "private": true,
   "dependencies": {
     "tslib": "^2.3.0"
   },
   "devDependencies": {
-    "@jscutlery/semver": "^2.26.0",
+    "@jscutlery/semver": "^2.27.1",
     "@nrwl/cli": "14.7.13",
     "@nrwl/eslint-plugin-nx": "14.7.13",
     "@nrwl/jest": "14.7.13",
