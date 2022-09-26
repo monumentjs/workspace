@@ -29,5 +29,5 @@ body:
   - id: keywords
     type: input
     attributes:
-      label: Search keywords
-      description: A list of keywords to help find this issue
+      label: Keywords
+      description: Include keywords that might help others with the same question find this issue

@@ -28,8 +28,8 @@ body:
       description: A clear and concise description of what you expected to happen.
     validations:
       required: true
-  - id: context
-    type: textarea
+  - id: keywords
+    type: input
     attributes:
-      label: Additional context
-      description: Add any other context about the problem here.
+      label: Keywords
+      description: Include keywords that might help others with the same question find this issue
