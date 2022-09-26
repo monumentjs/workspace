@@ -1,0 +1,25 @@
+name: Bug report
+description: Create a report to help us improve
+title: '[Bug]'
+labels:
+  - bug
+body:
+  - id: description
+    type: textarea
+    attributes:
+      label: Description
+      description: Describe the bug. Code sample or link to the repo would help a lot.
+    validations:
+      required: true
+  - id: expected
+    type: textarea
+    attributes:
+      label: Expected behavior
+      description: A clear and concise description of what you expected to happen.
+    validations:
+      required: true
+  - id: context
+    type: textarea
+    attributes:
+      label: Additional context
+      description: Add any other context about the problem here.
