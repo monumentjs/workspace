@@ -1,9 +1,19 @@
 name: Bug report
 description: Create a report to help us improve
-title: '[Bug]'
 labels:
   - bug
 body:
+  - id: project
+    type: dropdown
+    attributes:
+      label: Project
+      description: Select a project the requested feature belongs to.
+      options:
+        - core
+        - monad
+        - uri
+    validations:
+      required: true
   - id: description
     type: textarea
     attributes:

@@ -1,6 +1,5 @@
 name: Feature request
 description: Suggest an idea for the project
-title: '[Request]'
 labels:
   - enhancement
 body:
@@ -8,26 +7,23 @@ body:
     type: dropdown
     attributes:
       label: Project
-      description: Select a project
-      multiple: false
+      description: Select a project the requested feature belongs to.
       options:
         - core
         - monad
         - uri
-    validations:
-      required: true
   - id: problem
     type: textarea
     attributes:
       label: Problem
-      description: A clear and concise description of the problem
+      description: Describe the problem the requested feature should solve.
     validations:
       required: true
   - id: solution
     type: textarea
     attributes:
       label: Solution
-      description: A clear and concise description of the solution
+      description: Describe the expected/possible solution of the problem. Code samples are highly appeciated.
     validations:
       required: true
   - id: keywords
@@ -35,5 +31,3 @@ body:
     attributes:
       label: Search keywords
       description: A list of keywords to help find this issue
-    validations:
-      required: false
