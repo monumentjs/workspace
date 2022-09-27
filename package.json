@@ -10,7 +10,8 @@
     "ci:build": "nx affected --target=build --base=last-release",
     "ci:test": "nx affected --target=test --base=last-release",
     "ci:lint": "nx affected --target=lint --base=last-release",
-    "ci:release": "nx affected --target=release --base=last-release --parallel=1"
+    "ci:release": "nx affected --target=release --base=last-release --parallel=1",
+    "prepare": "husky install"
   },
   "private": true,
   "dependencies": {
@@ -31,8 +32,10 @@
     "@typescript-eslint/parser": "~5.33.1",
     "eslint": "~8.15.0",
     "eslint-config-prettier": "8.1.0",
+    "husky": "^8.0.1",
     "jest": "28.1.1",
     "jest-environment-jsdom": "28.1.1",
+    "lint-staged": "^13.0.3",
     "ngx-deploy-npm": "^4.2.2",
     "nx": "14.7.13",
     "prettier": "^2.6.2",
@@ -40,5 +43,8 @@
     "ts-node": "10.9.1",
     "typedoc": "^0.23.14",
     "typescript": "~4.7.2"
+  },
+  "lint-staged": {
+    "packages/**/*.{ts}": "prettier --write"
   }
 }
