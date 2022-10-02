@@ -52,8 +52,8 @@
  * const region = get(company, ['address', 'region']);
  * ```
  */
-export type DeepPathOf<T> = {
+export type DeepKeysOf<T> = {
   [K in keyof Required<T>]:
     | [K]
-    | (T[K] extends object ? [K, ...DeepPathOf<T[K]>] : never);
+    | (T[K] extends object ? [K, ...DeepKeysOf<T[K]>] : never);
 }[keyof T];

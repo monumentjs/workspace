@@ -1,7 +1,7 @@
 import { DeepTypeOf } from './DeepTypeOf';
-import { DeepPathOf } from './DeepPathOf';
+import { DeepKeysOf } from './DeepKeysOf';
 
-export function set<T extends object, Path extends DeepPathOf<T>>(
+export function set<T extends object, Path extends DeepKeysOf<T>>(
   target: T,
   path: Path,
   value: DeepTypeOf<T, Path>

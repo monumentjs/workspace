@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { DeepTypeOf } from './DeepTypeOf';
-import { DeepPathOf } from './DeepPathOf';
+import { DeepKeysOf } from './DeepKeysOf';
 
-export function get<T extends object, Path extends DeepPathOf<T>>(
+export function get<T extends object, Path extends DeepKeysOf<T>>(
   source: T,
   path: Path
 ): DeepTypeOf<T, Path> {
