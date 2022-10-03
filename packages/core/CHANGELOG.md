@@ -2,6 +2,15 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+# [0.29.0](https://github.com/monumentjs/workspace/compare/core@0.28.0...core@0.29.0) (2022-10-03)
+
+
+### Features
+
+* **core:** :sparkles: add `get` and `set` functions ([#27](https://github.com/monumentjs/workspace/issues/27)) ([6ef46e8](https://github.com/monumentjs/workspace/commit/6ef46e81c0c686085849f9ad28dabc15cd29db32))
+
+
+
 # [0.28.0](https://github.com/monumentjs/workspace/compare/core@0.27.0...core@0.28.0) (2022-09-25)
 
 
