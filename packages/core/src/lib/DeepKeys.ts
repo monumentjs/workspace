@@ -32,14 +32,14 @@
  * Use it to declare a type-safe tuple with a path to specific nested property:
  *
  * ```ts
- * const correctPath: DeepPathOf<Company> = ['address', 'street', 'name']; // ok
- * const wrongPath: DeepPathOf<Company> = ['address', 'street', 'kind'];   // compilation error
+ * const correctPath: DeepPath<Company> = ['address', 'street', 'name']; // ok
+ * const wrongPath: DeepPath<Company> = ['address', 'street', 'kind'];   // compilation error
  * ```
  *
  * Use it to declare a generic type-safe path:
  *
  * ```ts
- * export function get<T, Path extends DeepPathOf<T>>(source: T, path: Path): DeepTypeOf<T, Path> {
+ * export function get<T, Path extends DeepPath<T>>(source: T, path: Path): DeepType<T, Path> {
  *   // ...
  * }
  * ```

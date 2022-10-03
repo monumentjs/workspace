@@ -1,6 +1,15 @@
 import { DeepType } from './DeepType';
 import { DeepKeys } from './DeepKeys';
 
+/**
+ * Creates a copy of the target object with the nested property set to the given value.
+ * @template T A type of the target object.
+ * @template Path A path to the nested property.
+ * @param target A target object.
+ * @param path A path to the nested propery.
+ * @param value A new value of the nested property.
+ * @returns A copy of the target object with the nested property set to the given value.
+ */
 export function set<T extends object, Path extends DeepKeys<T>>(
   target: T,
   path: Path,

@@ -20,7 +20,7 @@ type Sample = {
   };
 };
 
-describe('DeepTypeOf', () => {
+describe('DeepType', () => {
   it('should guarantee a nested value type-safety', () => {
     const a1: DeepType<Sample, ['a']> = {
       g: 'abc',
@@ -86,7 +86,19 @@ describe('DeepTypeOf', () => {
     };
   });
 
-  // const abc: DeepTypeOf<Sample, ['a', 'b', 'c']> = 123;
+  const abc: DeepType<Sample, ['a', 'b', 'c']> = 123;
 
-  // const abcd: DeepTypeOf<Sample, ['a', 'b', 'c', 'd']> = undefined;
+  const abd1: DeepType<Sample, ['a', 'b', 'd']> = undefined;
+  const abd2: DeepType<Sample, ['a', 'b', 'd']> = { e: 'abc' };
+  const abd3: DeepType<Sample, ['a', 'b', 'd']> = { e: 'abc', f: undefined };
+  const abd4: DeepType<Sample, ['a', 'b', 'd']> = { e: 'abc', f: true };
+
+  const h: DeepType<Sample, ['h']> = true;
+
+  const k: DeepType<Sample, ['k']> = { m: { n: 123 } };
+
+  const km1: DeepType<Sample, ['k', 'm']> = null;
+  const km2: DeepType<Sample, ['k', 'm']> = { n: 123 };
+
+  const kmn: DeepType<Sample, ['k', 'm', 'n']> = 123;
 });
