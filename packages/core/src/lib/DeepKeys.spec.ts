@@ -1,4 +1,4 @@
-import { DeepKeysOf } from './DeepKeysOf';
+import { DeepKeys } from './DeepKeys';
 
 type Sample = {
   a: {
@@ -19,27 +19,27 @@ type Sample = {
   };
 };
 
-describe('DeepKeysOf', () => {
+describe('DeepKeys', () => {
   it('should guarantee a nested path type-safety', () => {
-    <DeepKeysOf<Sample>>['a'];
-    <DeepKeysOf<Sample>>['a', 'b'];
+    <DeepKeys<Sample>>['a'];
+    <DeepKeys<Sample>>['a', 'b'];
     // @ts-expect-error when path contains an optional property
-    <DeepKeysOf<Sample>>['a', 'b', 'c'];
+    <DeepKeys<Sample>>['a', 'b', 'c'];
     // @ts-expect-error when path contains an optional property
-    <DeepKeysOf<Sample>>['a', 'b', 'd'];
+    <DeepKeys<Sample>>['a', 'b', 'd'];
     // @ts-expect-error when path contains an optional property
-    <DeepKeysOf<Sample>>['a', 'b', 'd', 'e'];
+    <DeepKeys<Sample>>['a', 'b', 'd', 'e'];
     // @ts-expect-error when path contains an optional property
-    <DeepKeysOf<Sample>>['a', 'b', 'd', 'f'];
-    <DeepKeysOf<Sample>>['a', 'g'];
-    <DeepKeysOf<Sample>>['h'];
-    <DeepKeysOf<Sample>>['k'];
-    <DeepKeysOf<Sample>>['k', 'm'];
+    <DeepKeys<Sample>>['a', 'b', 'd', 'f'];
+    <DeepKeys<Sample>>['a', 'g'];
+    <DeepKeys<Sample>>['h'];
+    <DeepKeys<Sample>>['k'];
+    <DeepKeys<Sample>>['k', 'm'];
     // @ts-expect-error when path contains a nullable property
-    <DeepKeysOf<Sample>>['k', 'm', 'n'];
+    <DeepKeys<Sample>>['k', 'm', 'n'];
     // @ts-expect-error when path is not correct
-    <DeepKeysOf<Sample>>['l', 'o', 'l'];
+    <DeepKeys<Sample>>['l', 'o', 'l'];
 
-    <DeepKeysOf<Sample[]>>[0, 'a', 'b'];
+    <DeepKeys<Sample[]>>[0, 'a', 'b'];
   });
 });

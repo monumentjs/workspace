@@ -1,10 +1,10 @@
-import { DeepTypeOf } from './DeepTypeOf';
-import { DeepKeysOf } from './DeepKeysOf';
+import { DeepType } from './DeepType';
+import { DeepKeys } from './DeepKeys';
 
-export function set<T extends object, Path extends DeepKeysOf<T>>(
+export function set<T extends object, Path extends DeepKeys<T>>(
   target: T,
   path: Path,
-  value: DeepTypeOf<T, Path>
+  value: DeepType<T, Path>
 ): T {
   if (path.length) {
     const [key, ...rest] = path;
