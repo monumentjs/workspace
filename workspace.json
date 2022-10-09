@@ -3,6 +3,7 @@
   "version": 2,
   "projects": {
     "core": "packages/core",
+    "lens": "packages/lens",
     "monad": "packages/monad",
     "uri": "packages/uri"
   }
