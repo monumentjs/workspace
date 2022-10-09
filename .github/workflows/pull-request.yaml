@@ -18,7 +18,7 @@ jobs:
       - name: Node - Setup
         uses: actions/setup-node@v3
         with:
-          node-version: 14
+          node-version: 16
 
       - name: NPM - Set cache directory
         id: npm-cache-dir
@@ -52,7 +52,7 @@ jobs:
       - name: Node - Setup
         uses: actions/setup-node@v3
         with:
-          node-version: 14
+          node-version: 16
 
       - name: NPM - Set cache directory
         id: npm-cache-dir
@@ -86,7 +86,7 @@ jobs:
       - name: Node - Setup
         uses: actions/setup-node@v3
         with:
-          node-version: 14
+          node-version: 16
 
       - name: NPM - Set cache directory
         id: npm-cache-dir
