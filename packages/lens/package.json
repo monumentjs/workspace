@@ -1,0 +1,29 @@
+{
+  "name": "@monument/lens",
+  "description": "Composable functional getters and setters (including nested properties).",
+  "keywords": [
+    "lens",
+    "functional",
+    "getter",
+    "setter",
+    "get",
+    "view",
+    "set",
+    "over",
+    "deep",
+    "nested",
+    "property"
+  ],
+  "version": "0.0.1",
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/monumentjs/workspace.git",
+    "directory": "packages/lens"
+  },
+  "license": "MIT",
+  "typedoc": {
+    "entryPoint": "./src/index.ts",
+    "readmeFile": "./README.md"
+  }
+}

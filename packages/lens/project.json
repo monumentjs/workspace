@@ -1,0 +1,56 @@
+{
+  "name": "lens",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/lens/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/packages/lens",
+        "main": "packages/lens/src/index.ts",
+        "tsConfig": "packages/lens/tsconfig.json",
+        "assets": ["packages/lens/*.md"]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["packages/lens/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/packages/lens"],
+      "options": {
+        "jestConfig": "packages/lens/jest.config.ts",
+        "passWithNoTests": true
+      }
+    },
+    "release": {
+      "executor": "@jscutlery/semver:version",
+      "options": {
+        "baseBranch": "main",
+        "preset": "angular",
+        "tagPrefix": "${projectName}@",
+        "postTargets": ["lens:npm", "lens:github"],
+        "trackDeps": true,
+        "push": true,
+        "commitMessageFormat": "chore(${projectName}): release version ${version}\n[skip ci]"
+      }
+    },
+    "github": {
+      "executor": "@jscutlery/semver:github",
+      "options": {
+        "tag": "${tag}",
+        "notes": "${notes}"
+      }
+    },
+    "npm": {
+      "executor": "ngx-deploy-npm:deploy"
+    }
+  },
+  "tags": []
+}
