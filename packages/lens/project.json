@@ -10,7 +10,7 @@
       "options": {
         "outputPath": "dist/packages/lens",
         "main": "packages/lens/src/index.ts",
-        "tsConfig": "packages/lens/tsconfig.json",
+        "tsConfig": "packages/lens/tsconfig.lib.json",
         "assets": ["packages/lens/*.md"]
       }
     },

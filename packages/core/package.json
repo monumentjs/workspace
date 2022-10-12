@@ -17,6 +17,7 @@
   "license": "MIT",
   "typedoc": {
     "entryPoint": "./src/index.ts",
-    "readmeFile": "./README.md"
+    "readmeFile": "./README.md",
+    "tsconfig": "./tsconfig.lib.json"
   }
 }

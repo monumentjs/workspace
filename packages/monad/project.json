@@ -9,7 +9,7 @@
       "options": {
         "outputPath": "dist/packages/monad",
         "main": "packages/monad/src/index.ts",
-        "tsConfig": "packages/monad/tsconfig.json",
+        "tsConfig": "packages/monad/tsconfig.lib.json",
         "assets": ["packages/monad/*.md"]
       }
     },
