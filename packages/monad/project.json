@@ -22,7 +22,7 @@
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/packages/monad"],
+      "outputs": ["{workspaceRoot}/coverage/packages/monad"],
       "options": {
         "jestConfig": "packages/monad/jest.config.ts",
         "passWithNoTests": true
