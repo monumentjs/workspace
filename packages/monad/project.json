@@ -1,4 +1,5 @@
 {
+  "name": "monad",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "packages/monad/src",
   "projectType": "library",
@@ -22,7 +23,7 @@
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/packages/monad"],
+      "outputs": ["{workspaceRoot}/coverage/packages/monad"],
       "options": {
         "jestConfig": "packages/monad/jest.config.ts",
         "passWithNoTests": true
