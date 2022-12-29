@@ -1,4 +1,5 @@
 {
+  "name": "uri",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "packages/uri/src",
   "projectType": "library",
@@ -22,7 +23,7 @@
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/packages/uri"],
+      "outputs": ["{workspaceRoot}/coverage/packages/uri"],
       "options": {
         "jestConfig": "packages/uri/jest.config.ts",
         "passWithNoTests": true
