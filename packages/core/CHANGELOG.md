@@ -2,6 +2,10 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.29.1](https://github.com/monumentjs/workspace/compare/core@0.29.0...core@0.29.1) (2023-01-07)
+
+
+
 # [0.29.0](https://github.com/monumentjs/workspace/compare/core@0.28.0...core@0.29.0) (2022-10-03)
 
 
