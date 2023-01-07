@@ -2,6 +2,13 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.1.7](https://github.com/monumentjs/workspace/compare/monad@0.1.6...monad@0.1.7) (2023-01-07)
+
+### Dependency Updates
+
+* `core` updated to version `0.1.0`
+
+
 ## [0.1.6](https://github.com/monumentjs/workspace/compare/monad@0.1.5...monad@0.1.6) (2022-10-03)
 
 ### Dependency Updates
