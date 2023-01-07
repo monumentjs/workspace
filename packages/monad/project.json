@@ -37,7 +37,6 @@
         "tagPrefix": "${projectName}@",
         "postTargets": ["monad:npm", "monad:github"],
         "trackDeps": true,
-        "push": true,
         "commitMessageFormat": "chore(${projectName}): release version ${version}\n[skip ci]"
       }
     },
