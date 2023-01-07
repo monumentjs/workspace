@@ -40,7 +40,7 @@ jobs:
             ${{ runner.os }}-npm-migrate-
 
       - name: NPM - Install dependencies
-        run: npm ci --prefer-offline=true --audit=false
+        run: npm ci --no-audit
 
       - name: Nx - Create migrations
         run: npm run migrations:create

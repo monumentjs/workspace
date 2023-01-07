@@ -31,7 +31,7 @@ jobs:
           node-version: 16
 
       - name: Install dependencies
-        run: npm ci --prefer-offline=true --audit=false
+        run: npm ci --no-audit
 
       - name: Build with TypeDoc
         run: npm run docs
