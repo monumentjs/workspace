@@ -2,6 +2,13 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.1.1](https://github.com/monumentjs/workspace/compare/lens@0.1.0...lens@0.1.1) (2023-01-07)
+
+### Dependency Updates
+
+* `core` updated to version `0.1.0`
+
+
 # 0.1.0 (2022-10-09)
 
 ### Dependency Updates
