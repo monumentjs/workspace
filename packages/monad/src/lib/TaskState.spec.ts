@@ -338,7 +338,7 @@ describe('TaskState', () => {
         .forEach(forEach)
         .flatMap(flatMap);
 
-      expect(state).toStrictEqual(new TestError('Bad result: 123'));
+      expect(state).toStrictEqual(Failed(new TestError('Bad result: 123')));
 
       expect(getResult).toHaveBeenCalledWith(new TestResult(123));
       expect(forEach).toHaveBeenCalledWith(123);
