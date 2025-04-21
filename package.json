@@ -25,7 +25,6 @@
     "@nrwl/jest": "15.8.5",
     "@nrwl/js": "15.8.5",
     "@nrwl/linter": "15.8.5",
-    "@nrwl/nx-cloud": "15.1.1",
     "@nrwl/workspace": "15.8.5",
     "@types/jest": "29.4.0",
     "@types/node": "16.11.7",
@@ -38,7 +37,7 @@
     "jest-environment-jsdom": "29.4.3",
     "lint-staged": "^13.0.3",
     "ngx-deploy-npm": "5.2.0",
-    "nx": "15.8.5",
+    "nx": "20.8.0",
     "prettier": "^2.6.2",
     "ts-jest": "29.0.5",
     "ts-node": "10.9.1",
@@ -52,4 +51,3 @@
     "node": ">=16"
   }
 }
-
