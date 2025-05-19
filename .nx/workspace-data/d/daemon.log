@@ -1,0 +1,36 @@
+[NX v21.0.3 Daemon Server] - 2025-05-19T07:21:57.320Z - Started listening on: /tmp/5658898739611e9623e6/d.sock
+[NX v21.0.3 Daemon Server] - 2025-05-19T07:21:57.322Z - [WATCHER]: Subscribed to changes within: /home/runner/work/workspace/workspace (native)
+[NX v21.0.3 Daemon Server] - 2025-05-19T07:21:57.324Z - Established a connection. Number of open connections: 1
+[NX v21.0.3 Daemon Server] - 2025-05-19T07:21:57.325Z - Established a connection. Number of open connections: 2
+[NX v21.0.3 Daemon Server] - 2025-05-19T07:21:57.328Z - [REQUEST]: Responding to the client. Shutdown initiated
+[NX v21.0.3 Daemon Server] - 2025-05-19T07:21:57.329Z - Done responding to the client Shutdown initiated
+[NX v21.0.3 Daemon Server] - 2025-05-19T07:21:57.329Z - Handled FORCE_SHUTDOWN. Handling time: 0. Response time: 1.
+[NX v21.0.3 Daemon Server] - 2025-05-19T07:21:57.329Z - Closed a connection. Number of open connections: 1
+[NX v21.0.3 Daemon Server] - 2025-05-19T07:21:57.330Z - Closed a connection. Number of open connections: 0
+[NX v21.0.3 Daemon Server] - 2025-05-19T07:21:57.330Z - [WATCHER]: Stopping the watcher for /home/runner/work/workspace/workspace (sources)
+[NX v21.0.3 Daemon Server] - 2025-05-19T07:21:57.330Z - [WATCHER]: Stopping the watcher for /home/runner/work/workspace/workspace (outputs)
+[NX v21.0.3 Daemon Server] - 2025-05-19T07:21:57.331Z - Server stopped because: "Request to shutdown"
+[NX v21.0.3 Daemon Server] - 2025-05-19T07:22:03.275Z - Started listening on: /tmp/5658898739611e9623e6/d.sock
+[NX v21.0.3 Daemon Server] - 2025-05-19T07:22:03.276Z - [WATCHER]: Subscribed to changes within: /home/runner/work/workspace/workspace (native)
+[NX v21.0.3 Daemon Server] - 2025-05-19T07:22:03.285Z - Established a connection. Number of open connections: 1
+[NX v21.0.3 Daemon Server] - 2025-05-19T07:22:03.285Z - Established a connection. Number of open connections: 2
+[NX v21.0.3 Daemon Server] - 2025-05-19T07:22:03.289Z - [REQUEST]: Responding to the client. Shutdown initiated
+[NX v21.0.3 Daemon Server] - 2025-05-19T07:22:03.289Z - Done responding to the client Shutdown initiated
+[NX v21.0.3 Daemon Server] - 2025-05-19T07:22:03.290Z - Handled FORCE_SHUTDOWN. Handling time: 0. Response time: 1.
+[NX v21.0.3 Daemon Server] - 2025-05-19T07:22:03.290Z - Closed a connection. Number of open connections: 1
+[NX v21.0.3 Daemon Server] - 2025-05-19T07:22:03.291Z - Closed a connection. Number of open connections: 0
+[NX v21.0.3 Daemon Server] - 2025-05-19T07:22:03.291Z - [WATCHER]: Stopping the watcher for /home/runner/work/workspace/workspace (sources)
+[NX v21.0.3 Daemon Server] - 2025-05-19T07:22:03.291Z - [WATCHER]: Stopping the watcher for /home/runner/work/workspace/workspace (outputs)
+[NX v21.0.3 Daemon Server] - 2025-05-19T07:22:03.291Z - Server stopped because: "Request to shutdown"
+[NX v21.0.3 Daemon Server] - 2025-05-19T07:22:16.003Z - Started listening on: /tmp/5658898739611e9623e6/d.sock
+[NX v21.0.3 Daemon Server] - 2025-05-19T07:22:16.005Z - [WATCHER]: Subscribed to changes within: /home/runner/work/workspace/workspace (native)
+[NX v21.0.3 Daemon Server] - 2025-05-19T07:22:16.013Z - Established a connection. Number of open connections: 1
+[NX v21.0.3 Daemon Server] - 2025-05-19T07:22:16.013Z - Established a connection. Number of open connections: 2
+[NX v21.0.3 Daemon Server] - 2025-05-19T07:22:16.017Z - [REQUEST]: Responding to the client. Shutdown initiated
+[NX v21.0.3 Daemon Server] - 2025-05-19T07:22:16.017Z - Done responding to the client Shutdown initiated
+[NX v21.0.3 Daemon Server] - 2025-05-19T07:22:16.017Z - Handled FORCE_SHUTDOWN. Handling time: 1. Response time: 0.
+[NX v21.0.3 Daemon Server] - 2025-05-19T07:22:16.018Z - Closed a connection. Number of open connections: 1
+[NX v21.0.3 Daemon Server] - 2025-05-19T07:22:16.018Z - Closed a connection. Number of open connections: 0
+[NX v21.0.3 Daemon Server] - 2025-05-19T07:22:16.019Z - [WATCHER]: Stopping the watcher for /home/runner/work/workspace/workspace (sources)
+[NX v21.0.3 Daemon Server] - 2025-05-19T07:22:16.019Z - [WATCHER]: Stopping the watcher for /home/runner/work/workspace/workspace (outputs)
+[NX v21.0.3 Daemon Server] - 2025-05-19T07:22:16.019Z - Server stopped because: "Request to shutdown"
