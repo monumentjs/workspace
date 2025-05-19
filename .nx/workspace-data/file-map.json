@@ -1,0 +1,553 @@
+{
+  "version": "6.0",
+  "nxVersion": "21.0.3",
+  "pathMappings": {
+    "@monument/core": [
+      "packages/core/src/index.ts"
+    ],
+    "@monument/lens": [
+      "packages/lens/src/index.ts"
+    ],
+    "@monument/monad": [
+      "packages/monad/src/index.ts"
+    ],
+    "@monument/uri": [
+      "packages/uri/src/index.ts"
+    ]
+  },
+  "nxJsonPlugins": [],
+  "fileMap": {
+    "projectFileMap": {
+      "monad": [
+        {
+          "file": "packages/monad/.eslintrc.json",
+          "hash": "13800677001662881425"
+        },
+        {
+          "file": "packages/monad/CHANGELOG.md",
+          "hash": "1678283921117559151"
+        },
+        {
+          "file": "packages/monad/README.md",
+          "hash": "15691471207943661348"
+        },
+        {
+          "file": "packages/monad/jest.config.ts",
+          "hash": "12287549933846502700"
+        },
+        {
+          "file": "packages/monad/package.json",
+          "hash": "9174664533872650683"
+        },
+        {
+          "file": "packages/monad/project.json",
+          "hash": "14110238074252880237"
+        },
+        {
+          "file": "packages/monad/src/index.ts",
+          "hash": "13879954987329639951"
+        },
+        {
+          "file": "packages/monad/src/lib/AIO.spec.ts",
+          "hash": "11145255984648480136"
+        },
+        {
+          "file": "packages/monad/src/lib/AIO.ts",
+          "hash": "10526743913975419041"
+        },
+        {
+          "file": "packages/monad/src/lib/Applicative.ts",
+          "hash": "13781921422653305267"
+        },
+        {
+          "file": "packages/monad/src/lib/Bind.ts",
+          "hash": "14208292570023105606"
+        },
+        {
+          "file": "packages/monad/src/lib/Either.spec.ts",
+          "hash": "17177294587959786244"
+        },
+        {
+          "file": "packages/monad/src/lib/Either.ts",
+          "hash": "5556789062444617676"
+        },
+        {
+          "file": "packages/monad/src/lib/Functor.ts",
+          "hash": "5464202554221492433"
+        },
+        {
+          "file": "packages/monad/src/lib/IO.spec.ts",
+          "hash": "6018988992938284696"
+        },
+        {
+          "file": "packages/monad/src/lib/IO.ts",
+          "hash": "5530468172384452861"
+        },
+        {
+          "file": "packages/monad/src/lib/Monad.ts",
+          "hash": "3781940002800034947"
+        },
+        {
+          "file": "packages/monad/src/lib/Optional.ts",
+          "hash": "7831052056382648064"
+        },
+        {
+          "file": "packages/monad/src/lib/TaskState.spec.ts",
+          "hash": "11176043036554635704"
+        },
+        {
+          "file": "packages/monad/src/lib/TaskState.ts",
+          "hash": "6438574913460230329"
+        },
+        {
+          "file": "packages/monad/src/lib/Validation.spec.ts",
+          "hash": "17259990980504561386"
+        },
+        {
+          "file": "packages/monad/src/lib/Validation.ts",
+          "hash": "1687619010086433531"
+        },
+        {
+          "file": "packages/monad/tsconfig.json",
+          "hash": "12834038490315927699"
+        },
+        {
+          "file": "packages/monad/tsconfig.lib.json",
+          "hash": "6789591993676711731"
+        },
+        {
+          "file": "packages/monad/tsconfig.spec.json",
+          "hash": "15930206240302011524"
+        }
+      ],
+      "lens": [
+        {
+          "file": "packages/lens/.eslintrc.json",
+          "hash": "13800677001662881425"
+        },
+        {
+          "file": "packages/lens/CHANGELOG.md",
+          "hash": "14328619520540182127"
+        },
+        {
+          "file": "packages/lens/README.md",
+          "hash": "614051993450218935"
+        },
+        {
+          "file": "packages/lens/jest.config.ts",
+          "hash": "8682939225138100336"
+        },
+        {
+          "file": "packages/lens/package.json",
+          "hash": "10712179325210655434"
+        },
+        {
+          "file": "packages/lens/project.json",
+          "hash": "10408084013739705856"
+        },
+        {
+          "file": "packages/lens/src/index.ts",
+          "hash": "14516702276679626303"
+        },
+        {
+          "file": "packages/lens/src/lib/Lens.ts",
+          "hash": "4359598648538281358"
+        },
+        {
+          "file": "packages/lens/src/lib/LensGetter.ts",
+          "hash": "17665265276162071490"
+        },
+        {
+          "file": "packages/lens/src/lib/LensOver.ts",
+          "hash": "17661208415680296428"
+        },
+        {
+          "file": "packages/lens/src/lib/LensSetter.ts",
+          "hash": "15214120277958829362"
+        },
+        {
+          "file": "packages/lens/src/lib/PathLens.spec.ts",
+          "hash": "3763632652708811222"
+        },
+        {
+          "file": "packages/lens/src/lib/PathLens.ts",
+          "hash": "11627416213579481659"
+        },
+        {
+          "file": "packages/lens/tsconfig.json",
+          "hash": "12834038490315927699"
+        },
+        {
+          "file": "packages/lens/tsconfig.lib.json",
+          "hash": "6789591993676711731"
+        },
+        {
+          "file": "packages/lens/tsconfig.spec.json",
+          "hash": "15930206240302011524"
+        }
+      ],
+      "uri": [
+        {
+          "file": "packages/uri/.eslintrc.json",
+          "hash": "13800677001662881425"
+        },
+        {
+          "file": "packages/uri/CHANGELOG.md",
+          "hash": "17885225345923895821"
+        },
+        {
+          "file": "packages/uri/README.md",
+          "hash": "11512882510529861164"
+        },
+        {
+          "file": "packages/uri/jest.config.ts",
+          "hash": "9514940704630840650"
+        },
+        {
+          "file": "packages/uri/package.json",
+          "hash": "13268076747516926852"
+        },
+        {
+          "file": "packages/uri/project.json",
+          "hash": "5575064716329833639"
+        },
+        {
+          "file": "packages/uri/src/index.ts",
+          "hash": "6183784566038621775"
+        },
+        {
+          "file": "packages/uri/src/lib/Authority.spec.ts",
+          "hash": "16744380507987995170"
+        },
+        {
+          "file": "packages/uri/src/lib/Authority.ts",
+          "hash": "1660661334074976332"
+        },
+        {
+          "file": "packages/uri/src/lib/Fragment.ts",
+          "hash": "13249927677031352893"
+        },
+        {
+          "file": "packages/uri/src/lib/HierarchicalPath.spec.ts",
+          "hash": "13424060316686404256"
+        },
+        {
+          "file": "packages/uri/src/lib/HierarchicalPath.ts",
+          "hash": "16091241439851709150"
+        },
+        {
+          "file": "packages/uri/src/lib/Host.ts",
+          "hash": "7320561796143729107"
+        },
+        {
+          "file": "packages/uri/src/lib/OpaquePath.ts",
+          "hash": "13406754453496227665"
+        },
+        {
+          "file": "packages/uri/src/lib/Password.ts",
+          "hash": "16366745265434749903"
+        },
+        {
+          "file": "packages/uri/src/lib/Path.ts",
+          "hash": "11803929593885426732"
+        },
+        {
+          "file": "packages/uri/src/lib/PathSegment.ts",
+          "hash": "2096295454830790728"
+        },
+        {
+          "file": "packages/uri/src/lib/Port.ts",
+          "hash": "14296186306821144003"
+        },
+        {
+          "file": "packages/uri/src/lib/Query.ts",
+          "hash": "8597313960157479302"
+        },
+        {
+          "file": "packages/uri/src/lib/QueryParam.ts",
+          "hash": "13294231343101350249"
+        },
+        {
+          "file": "packages/uri/src/lib/Scheme.ts",
+          "hash": "2920310389001911287"
+        },
+        {
+          "file": "packages/uri/src/lib/URI.spec.ts",
+          "hash": "18199223122805719092"
+        },
+        {
+          "file": "packages/uri/src/lib/URI.ts",
+          "hash": "16399484165170514038"
+        },
+        {
+          "file": "packages/uri/src/lib/Username.ts",
+          "hash": "14485517582868794676"
+        },
+        {
+          "file": "packages/uri/tsconfig.json",
+          "hash": "12834038490315927699"
+        },
+        {
+          "file": "packages/uri/tsconfig.lib.json",
+          "hash": "6789591993676711731"
+        },
+        {
+          "file": "packages/uri/tsconfig.spec.json",
+          "hash": "15930206240302011524"
+        }
+      ],
+      "core": [
+        {
+          "file": "packages/core/.eslintrc.json",
+          "hash": "13800677001662881425"
+        },
+        {
+          "file": "packages/core/CHANGELOG.md",
+          "hash": "8495215420100682544"
+        },
+        {
+          "file": "packages/core/README.md",
+          "hash": "15901758194994153612"
+        },
+        {
+          "file": "packages/core/jest.config.ts",
+          "hash": "7421150214191608758"
+        },
+        {
+          "file": "packages/core/package.json",
+          "hash": "8814226026894280209"
+        },
+        {
+          "file": "packages/core/project.json",
+          "hash": "16963009169056145587"
+        },
+        {
+          "file": "packages/core/src/index.ts",
+          "hash": "15755651427570398335"
+        },
+        {
+          "file": "packages/core/src/lib/DeepKeys.spec.ts",
+          "hash": "9285666322226350392"
+        },
+        {
+          "file": "packages/core/src/lib/DeepKeys.ts",
+          "hash": "5175381217612107591"
+        },
+        {
+          "file": "packages/core/src/lib/DeepType.spec.ts",
+          "hash": "1787067279910979718"
+        },
+        {
+          "file": "packages/core/src/lib/DeepType.ts",
+          "hash": "13487195289786726299"
+        },
+        {
+          "file": "packages/core/src/lib/DefaultMemoizationStrategy.ts",
+          "hash": "10093695006928005440"
+        },
+        {
+          "file": "packages/core/src/lib/Falsy.ts",
+          "hash": "5262210777194992468"
+        },
+        {
+          "file": "packages/core/src/lib/Func.ts",
+          "hash": "10666384085590675684"
+        },
+        {
+          "file": "packages/core/src/lib/MemoizationStrategy.ts",
+          "hash": "6208187063630679608"
+        },
+        {
+          "file": "packages/core/src/lib/NonFalsy.ts",
+          "hash": "6429522110128237868"
+        },
+        {
+          "file": "packages/core/src/lib/chain.spec.ts",
+          "hash": "6009540948206416108"
+        },
+        {
+          "file": "packages/core/src/lib/chain.ts",
+          "hash": "13887821623936051382"
+        },
+        {
+          "file": "packages/core/src/lib/compose.ts",
+          "hash": "16854436735101368228"
+        },
+        {
+          "file": "packages/core/src/lib/get.spec.ts",
+          "hash": "7295318602915673355"
+        },
+        {
+          "file": "packages/core/src/lib/get.ts",
+          "hash": "12040274657760203493"
+        },
+        {
+          "file": "packages/core/src/lib/identity.ts",
+          "hash": "6272486887598093923"
+        },
+        {
+          "file": "packages/core/src/lib/memoize.spec.ts",
+          "hash": "5728475923876784684"
+        },
+        {
+          "file": "packages/core/src/lib/memoize.ts",
+          "hash": "9194881405172182668"
+        },
+        {
+          "file": "packages/core/src/lib/noop.ts",
+          "hash": "8887981016727065229"
+        },
+        {
+          "file": "packages/core/src/lib/pipe.ts",
+          "hash": "13961623208745973306"
+        },
+        {
+          "file": "packages/core/src/lib/set.spec.ts",
+          "hash": "4034824239190334705"
+        },
+        {
+          "file": "packages/core/src/lib/set.ts",
+          "hash": "10299513036973054807"
+        },
+        {
+          "file": "packages/core/tsconfig.json",
+          "hash": "12834038490315927699"
+        },
+        {
+          "file": "packages/core/tsconfig.lib.json",
+          "hash": "6789591993676711731"
+        },
+        {
+          "file": "packages/core/tsconfig.spec.json",
+          "hash": "15930206240302011524"
+        }
+      ]
+    },
+    "nonProjectFiles": [
+      {
+        "file": ".editorconfig",
+        "hash": "5443105041930014821"
+      },
+      {
+        "file": ".eslintignore",
+        "hash": "7663861978715868291"
+      },
+      {
+        "file": ".eslintrc.json",
+        "hash": "1659929058009100827"
+      },
+      {
+        "file": ".github/ISSUE_TEMPLATE/bug_report.yml",
+        "hash": "14189284596350610876"
+      },
+      {
+        "file": ".github/ISSUE_TEMPLATE/config.yml",
+        "hash": "7452254023728074754"
+      },
+      {
+        "file": ".github/ISSUE_TEMPLATE/feature_request.yml",
+        "hash": "11312737324216529222"
+      },
+      {
+        "file": ".github/PULL_REQUEST_TEMPLATE.md",
+        "hash": "13210304558562203043"
+      },
+      {
+        "file": ".github/workflows/npm-audit.yaml",
+        "hash": "5427221488328907353"
+      },
+      {
+        "file": ".github/workflows/nx-migrate.yaml",
+        "hash": "12133739402989868193"
+      },
+      {
+        "file": ".github/workflows/pages.yaml",
+        "hash": "10169069962162365582"
+      },
+      {
+        "file": ".github/workflows/pull-request.yaml",
+        "hash": "14898506648834705972"
+      },
+      {
+        "file": ".github/workflows/release.yaml",
+        "hash": "7055336345589546100"
+      },
+      {
+        "file": ".gitignore",
+        "hash": "10958323747175414401"
+      },
+      {
+        "file": ".husky/.gitignore",
+        "hash": "10106645302852536800"
+      },
+      {
+        "file": ".husky/pre-commit",
+        "hash": "8906304965158091741"
+      },
+      {
+        "file": ".prettierignore",
+        "hash": "18338114556616350177"
+      },
+      {
+        "file": ".prettierrc",
+        "hash": "16267754514737964994"
+      },
+      {
+        "file": ".vscode/extensions.json",
+        "hash": "4637156562308165301"
+      },
+      {
+        "file": ".vscode/settings.json",
+        "hash": "4120311661733687944"
+      },
+      {
+        "file": "CODE_OF_CONDUCT.md",
+        "hash": "16986925620618918151"
+      },
+      {
+        "file": "LICENSE",
+        "hash": "11595348075538917355"
+      },
+      {
+        "file": "README.md",
+        "hash": "8887573857122836720"
+      },
+      {
+        "file": "jest.config.ts",
+        "hash": "2950215254536237782"
+      },
+      {
+        "file": "jest.preset.js",
+        "hash": "17443723868547557986"
+      },
+      {
+        "file": "migrations.json",
+        "hash": "12726739313798780851"
+      },
+      {
+        "file": "nx.json",
+        "hash": "16722282481576651785"
+      },
+      {
+        "file": "package-lock.json",
+        "hash": "17955942619149107508"
+      },
+      {
+        "file": "package.json",
+        "hash": "3070691038027010583"
+      },
+      {
+        "file": "tools/generators/.gitkeep",
+        "hash": "3244421341483603138"
+      },
+      {
+        "file": "tools/tsconfig.tools.json",
+        "hash": "16088922570277978783"
+      },
+      {
+        "file": "tsconfig.base.json",
+        "hash": "12439601891886562888"
+      }
+    ]
+  }
+}
